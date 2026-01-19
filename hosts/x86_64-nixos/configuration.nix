@@ -14,6 +14,7 @@
     ../../modules/common/roc.nix
     ../../modules/common/yazi.nix
     ../../modules/common/starship.nix
+    ../../modules/common/zen.nix
     ../../modules/linux/wifi.nix
     ../../modules/linux/nh.nix
     ../../modules/linux/packages.nix
@@ -32,17 +33,30 @@
 
   nix.settings.experimental-features =
     [ "nix-command" "flakes" "pipe-operators" ];
+  nix.settings.extra-platforms = [ "aarch64-linux" ];
 
+  nixpkgs.config.permittedInsecurePackages = [ "electron-35.7.5" ];
   nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker = { enable = true; };
+
+  environment.systemPackages =
+    [ inputs.nixos-anywhere.packages.${pkgs.system}.default ];
 
   users.users.nanobreaker = {
     isNormalUser = true;
     name = "nanobreaker";
     home = "/home/nanobreaker";
-    extraGroups =
-      [ "networkmanager" "wheel" "audio" "input" "dialout" "docker" "plugdev" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "input"
+      "dialout"
+      "docker"
+      "tty"
+      "plugdev"
+    ];
     shell = pkgs.nushell;
   };
 

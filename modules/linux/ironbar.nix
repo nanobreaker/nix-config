@@ -1,8 +1,9 @@
 { config, inputs, pkgs, lib, ... }: {
 
-  environment.systemPackages = [ pkgs.upower pkgs.bluez ];
-
-  services.upower = { enable = true; };
+  services.upower = {
+    enable = true;
+    package = pkgs.upower;
+  };
 
   hardware.bluetooth = {
     enable = true;
@@ -15,81 +16,106 @@
     {
       programs.ironbar = {
         enable = true;
-        systemd = false;
-        package = inputs.ironbar.packages.${pkgs.system}.default;
+        systemd = true;
         config = {
-          anchor_to_edges = true;
-          position = "top";
-          height = 13;
-          margin.top = 9;
-          margin.bottom = 0;
-          margin.left = 9;
-          margin.right = 9;
-          autohide = null;
-          start_hidden = false;
-          # icon_theme = "Symbols Nerd Font Mono";
+          package = inputs.ironbar;
+          icon_theme = pkgs.nerd-fonts.symbols-only;
+          monitors = {
+            eDP-1 = {
+              anchor_to_edges = true;
+              position = "top";
+              height = 13;
+              margin.top = 9;
+              margin.bottom = 0;
+              margin.left = 9;
+              margin.right = 9;
+              autohide = null;
+              start_hidden = false;
+              start = [
+                { type = "workspaces"; }
+                {
+                  type = "focused";
+                  show_icon = false;
+                  show_title = true;
+                  truncate = {
+                    mode = "end";
+                    max_length = 40;
+                  };
+                }
+              ];
 
-          start = [
-            { type = "workspaces"; }
-            {
-              type = "focused";
-              show_icon = false;
-              show_title = true;
-              truncate = {
-                mode = "end";
-                max_length = 40;
-              };
-            }
-          ];
+              center = [ ];
+              end = [{
+                type = "clock";
+                format = "%d/%m/%Y %H:%M";
+                justify = "center";
+              }];
+            };
+            DP-2 = {
+              anchor_to_edges = true;
+              position = "top";
+              height = 13;
+              margin.top = 9;
+              margin.bottom = 0;
+              margin.left = 9;
+              margin.right = 9;
+              autohide = null;
+              start_hidden = false;
 
-          center = [ ];
+              start = [
+                { type = "workspaces"; }
+                {
+                  type = "focused";
+                  show_icon = false;
+                  show_title = true;
+                  truncate = {
+                    mode = "end";
+                    max_length = 40;
+                  };
+                }
+              ];
 
-          end = [
-            {
-              type = "music";
-              icon_size = 13;
-              justify = "center";
-              truncate = {
-                mode = "end";
-                max_length = 40;
-              };
-            }
-            {
-              type = "tray";
-              icon_size = 13;
-              justify = "center";
-            }
-            {
-              type = "volume";
-              format = "{icon} {percentage}%";
-              justify = "center";
-            }
-            {
-              type = "upower";
-              icon_size = 13;
-              format = "{percentage}%";
-              justify = "center";
-            }
-            {
-              type = "network_manager";
-              icon_size = 13;
-              justify = "center";
-            }
-            {
-              type = "clock";
-              format = "%d/%m/%Y %H:%M";
-              justify = "center";
-            }
-          ];
+              center = [ ];
+
+              end = [
+                {
+                  type = "music";
+                  icon_size = 14;
+                  justify = "center";
+                  truncate = {
+                    mode = "end";
+                    max_length = 40;
+                  };
+                }
+                {
+                  type = "tray";
+                  icon_size = 14;
+                  justify = "center";
+                }
+                {
+                  type = "volume";
+                  format = "{icon} {percentage}%";
+                  icon_size = 14;
+                  justify = "center";
+                }
+                {
+                  type = "clock";
+                  format = "%d/%m/%Y %H:%M";
+                  justify = "center";
+                }
+              ];
+            };
+          };
+
         };
 
         style = ''
           @define-color foreground #ffffff;
-          @define-color background #0a0c10;
+          @define-color background #0a0c0f;
 
           * {
-            font-family: Berkeley Mono Bold;
-            font-size: 13px;
+            font-family: Berkeley Mono ExtraBold, Symbols Nerd Font Mono;
+            font-size: 14px;
 
             padding: 0px;
             margin: 0px;
@@ -99,7 +125,7 @@
           }
 
           .background {
-            background-color: rgba(0,0,0,0);
+            background-color: transparent;
           }
 
           .workspaces {
@@ -147,9 +173,13 @@
 
           .tray {
             color: @foreground;
-            background-color: @background;
+            background-color: transparent;
             padding: 0px 4px;
             margin: 0px 4px;
+          }
+
+          .tray .item {
+            background-color: transparent;
           }
 
           .volume {

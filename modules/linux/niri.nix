@@ -1,15 +1,16 @@
 { config, lib, pkgs, inputs, ... }: {
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
-  environment.systemPackages = with pkgs; [
-    wayidle
-    waylock
-    swww
-    slurp
-    wl-screenrec
-    wl-clipboard-rs
-    gnome-control-center
-    xwayland-satellite-unstable
+  environment.systemPackages = [
+    pkgs.wayidle
+    pkgs.waylock
+    pkgs.slurp
+    pkgs.wl-screenrec
+    pkgs.wl-clipboard-rs
+    pkgs.gnome-control-center
+    pkgs.xwayland-satellite-unstable
+    pkgs.gifsicle
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
   programs.xwayland.enable = true;
@@ -21,9 +22,8 @@
       package = pkgs.niri-unstable;
       settings = {
         spawn-at-startup = [
-          { command = [ "ironbar" ]; }
-          { command = [ "swww-daemon" ]; }
-          { command = [ "swww" "img" "../../assets/wallpaper.jpeg" ]; }
+          { command = [ "awww-daemon" ]; }
+          { command = [ "awww" "img" "../../assets/wallpaper_1.gif" ]; }
         ];
         prefer-no-csd = true;
         environment = { NIXOS_OZONE_WL = "1"; };
@@ -50,11 +50,11 @@
           "eDP-1" = {
             scale = 1.0;
             position = {
-              x = 0;
+              x = 2560;
               y = 0;
             };
           };
-          "DP-3" = {
+          "DP-2" = {
             mode = {
               width = 2560;
               height = 1440;
@@ -62,7 +62,7 @@
             };
             scale = 1.0;
             position = {
-              x = 1920;
+              x = 0;
               y = 0;
             };
           };
@@ -151,8 +151,8 @@
 
           "Mod+Left".action.focus-column-left = { };
           "Mod+Right".action.focus-column-right = { };
-          "Mod+Down".action.focus-window-down = { };
-          "Mod+Up".action.focus-window-up = { };
+          "Mod+Down".action.focus-workspace-down = { };
+          "Mod+Up".action.focus-workspace-up = { };
 
           "Mod+Shift+Left".action.move-column-left = { };
           "Mod+Shift+Right".action.move-column-right = { };
@@ -161,8 +161,6 @@
 
           "Mod+Ctrl+Left".action.focus-monitor-left = { };
           "Mod+Ctrl+Right".action.focus-monitor-right = { };
-          "Mod+Ctrl+Up".action.focus-workspace-up = { };
-          "Mod+Ctrl+Down".action.focus-workspace-down = { };
 
           "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = { };
           "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = { };

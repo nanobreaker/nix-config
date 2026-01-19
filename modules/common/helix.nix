@@ -13,8 +13,8 @@
     pkgs.deno
     pkgs.jdt-language-server
     pkgs.taplo
-    pkgs.clang_16
-    pkgs.clang-tools_16
+    pkgs.clang
+    pkgs.clang-tools
   ];
 
   home-manager.sharedModules = [{

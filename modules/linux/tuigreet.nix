@@ -7,7 +7,7 @@
     settings = {
       default_session = {
         user = "nanobreaker";
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
       };
     };
   };

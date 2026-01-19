@@ -43,6 +43,7 @@ Also, I'm huge fan of rust written apps I and believe there is no better alterna
 | systemctl-tui | systemd services             | rust     |
 | gitui         | git tui                      | rust     |
 | impala        | wifi tui                     | rust     |
+| imagemagick   | edit, convert bitmap images  | c        |
 
 ### GUI
 

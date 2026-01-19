@@ -19,7 +19,7 @@
     element-desktop
     zed-editor
     gimp3
-    neofetch
+    fastfetch
     rpi-imager
     gdlauncher-carbon
     wpaperd
@@ -28,5 +28,9 @@
     dua
     systemctl-tui
     spotify
+    imagemagick
+    wl-color-picker
+    termscp
+    _1password-gui
   ];
 }

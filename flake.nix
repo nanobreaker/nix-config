@@ -26,6 +26,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    awww.url = "git+https://codeberg.org/LGFae/awww";
+
     niri = { url = "github:sodiboo/niri-flake"; };
 
     fenix = {
@@ -34,6 +36,13 @@
     };
 
     roc.url = "github:roc-lang/roc";
+
+    nixos-anywhere = { url = "github:nix-community/nixos-anywhere"; };
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, fenix, ... }:

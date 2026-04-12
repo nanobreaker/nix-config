@@ -1,46 +1,74 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
-    ../../modules/common/stylix.nix
-    ../../modules/common/home-manager.nix
-    ../../modules/common/fonts.nix
-    ../../modules/common/ghostty.nix
-    ../../modules/common/git.nix
-    ../../modules/common/helix.nix
-    ../../modules/common/btop.nix
-    ../../modules/common/nushell.nix
-    ../../modules/common/java.nix
-    ../../modules/common/rust/rust.nix
-    ../../modules/common/roc.nix
-    ../../modules/common/yazi.nix
-    ../../modules/common/starship.nix
-    ../../modules/common/zen.nix
-    ../../modules/linux/wifi.nix
-    ../../modules/linux/nh.nix
-    ../../modules/linux/packages.nix
-    ../../modules/linux/fuzzel.nix
-    ../../modules/linux/boot.nix
-    ../../modules/linux/tuigreet.nix
-    ../../modules/linux/niri.nix
-    ../../modules/linux/ironbar.nix
-    ../../modules/linux/localisation.nix
-    ../../modules/linux/networking.nix
-    ../../modules/linux/pipewire.nix
-    ../../modules/linux/time.nix
-    ../../modules/linux/udev.nix
-    ../../modules/linux/xserver.nix
+    ../../modules/btop.nix
+    ../../modules/docker.nix
+    ../../modules/fonts.nix
+    ../../modules/fuzzel.nix
+    ../../modules/ghostty.nix
+    ../../modules/git.nix
+    ../../modules/helix.nix
+    ../../modules/home-manager.nix
+    ../../modules/ironbar.nix
+    ../../modules/java.nix
+    ../../modules/localisation.nix
+    ../../modules/networking.nix
+    ../../modules/nh.nix
+    ../../modules/niri.nix
+    ../../modules/nix.nix
+    ../../modules/nixpkgs.nix
+    ../../modules/nushell.nix
+    ../../modules/packages.nix
+    ../../modules/pipewire.nix
+    ../../modules/rust.nix
+    ../../modules/security.nix
+    ../../modules/starship.nix
+    ../../modules/stylix.nix
+    ../../modules/time.nix
+    ../../modules/tuigreet.nix
+    ../../modules/udev.nix
+    ../../modules/wifi.nix
+    ../../modules/xserver.nix
+    ../../modules/yazi.nix
+    ../../modules/zen.nix
   ];
 
-  nix.settings.experimental-features =
-    [ "nix-command" "flakes" "pipe-operators" ];
-  nix.settings.extra-platforms = [ "aarch64-linux" ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  virtualisation.docker = { enable = true; };
-
-  environment.systemPackages =
-    [ inputs.nixos-anywhere.packages.${pkgs.system}.default ];
+  environment.systemPackages = with pkgs; [
+    _1password-gui
+    discord
+    dua
+    element-desktop
+    fastfetch
+    ffmpeg
+    gdlauncher-carbon
+    gimp3
+    google-chrome
+    imagemagick
+    impala
+    kicad
+    mpv
+    nixd
+    nodejs
+    p7zip
+    pavucontrol
+    pciutils
+    pcmanfm
+    pstree
+    qFlipper
+    ripgrep
+    scooter
+    spotify
+    systemctl-tui
+    systemfd
+    telegram-desktop
+    termscp
+    usbutils
+    uutils-coreutils-noprefix
+    wl-color-picker
+    wpaperd
+    zed-editor
+  ];
 
   users.users.nanobreaker = {
     isNormalUser = true;
@@ -59,13 +87,6 @@
     ];
     shell = pkgs.nushell;
   };
-
-  security.pam.loginLimits = [{
-    domain = "*";
-    type = "soft";
-    item = "nofile";
-    value = "8192";
-  }];
 
   home-manager.users.nanobreaker.home = {
     homeDirectory = "/home/nanobreaker";

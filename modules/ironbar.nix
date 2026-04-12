@@ -1,4 +1,5 @@
-{ config, inputs, pkgs, lib, ... }: {
+{ inputs, pkgs, ... }:
+{
 
   services.upower = {
     enable = true;
@@ -45,11 +46,13 @@
               ];
 
               center = [ ];
-              end = [{
-                type = "clock";
-                format = "%d/%m/%Y %H:%M";
-                justify = "center";
-              }];
+              end = [
+                {
+                  type = "clock";
+                  format = "%d/%m/%Y %H:%M";
+                  justify = "center";
+                }
+              ];
             };
             DP-2 = {
               anchor_to_edges = true;

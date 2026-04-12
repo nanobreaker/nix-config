@@ -1,5 +1,8 @@
-{ config, lib, inputs, pkgs, ... }: {
-
+{
+  pkgs,
+  ...
+}:
+{
   programs.dconf.enable = true;
 
   environment.systemPackages = [ pkgs.adwaita-icon-theme ];
@@ -8,7 +11,7 @@
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    image = ../../assets/wallpaper.jpeg;
+    image = ../assets/wallpaper.jpeg;
 
     cursor = {
       name = "apple-cursor";
@@ -17,9 +20,15 @@
     };
 
     fonts = {
-      serif = { name = "Berkeley Mono"; };
-      sansSerif = { name = "Berkeley Mono"; };
-      monospace = { name = "Berkeley Mono"; };
+      serif = {
+        name = "Berkeley Mono";
+      };
+      sansSerif = {
+        name = "Berkeley Mono";
+      };
+      monospace = {
+        name = "Berkeley Mono";
+      };
       emoji = {
         name = "Symbols Nerd Font";
         package = pkgs.nerd-fonts.symbols-only;

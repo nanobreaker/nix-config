@@ -4,7 +4,7 @@ pkgs.stdenv.mkDerivation {
   version = "1.009";
 
   src = builtins.path {
-    path = ../../assets/berkeley-mono.zip;
+    path = ../assets/berkeley-mono.zip;
     name = "berkeley-mono.zip";
   };
 

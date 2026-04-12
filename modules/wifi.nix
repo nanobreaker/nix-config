@@ -1,6 +1,5 @@
-{ inputs, pkgs, ... }: {
-
-  environment.systemPackages = with pkgs; [ impala ];
+{ inputs, pkgs, ... }:
+{
 
   networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";

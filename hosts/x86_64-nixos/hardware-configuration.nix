@@ -26,6 +26,18 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.kernelParams = [ "i915.enable_guc=2" ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # iHD (primary)
+      intel-vaapi-driver # i965 (fallback)
+      libva
+      libva-utils
+    ];
+  };
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/eacf892e-636c-4b58-bd13-928ec6c49019";
     fsType = "ext4";
@@ -47,5 +59,4 @@
   networking.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

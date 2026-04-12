@@ -65,33 +65,6 @@
 
           screenshot-path = "~/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
 
-          outputs = {
-            "eDP-1" = {
-              mode = {
-                width = 1920;
-                height = 1080;
-                refresh = 59.977;
-              };
-              scale = 1.0;
-              position = {
-                x = 2560;
-                y = 0;
-              };
-            };
-            "DP-2" = {
-              mode = {
-                width = 2560;
-                height = 1440;
-                refresh = 144.0;
-              };
-              scale = 1.0;
-              position = {
-                x = 0;
-                y = 0;
-              };
-            };
-          };
-
           overview = {
             backdrop-color = "transparent";
           };

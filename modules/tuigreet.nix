@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   environment.systemPackages = [ pkgs.tuigreet ];
 
@@ -6,7 +7,6 @@
     enable = true;
     settings = {
       default_session = {
-        user = "nanobreaker";
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
       };
     };

@@ -66,13 +66,22 @@
     in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        nano = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
             { nixpkgs.overlays = [ fenix.overlays.default ]; }
             inputs.stylix.nixosModules.stylix
             ./hosts/x86_64-nixos/configuration.nix
+          ];
+        };
+        meet = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            { nixpkgs.overlays = [ fenix.overlays.default ]; }
+            inputs.stylix.nixosModules.stylix
+            ./hosts/aarch64-nixos/configuration.nix
           ];
         };
       };

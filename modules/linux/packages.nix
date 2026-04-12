@@ -1,19 +1,22 @@
-{ config, inputs, pkgs, ... }: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+{
 
   environment.systemPackages = with pkgs; [
     uutils-coreutils-noprefix
     usbutils
-    nil
+    pciutils
     nixd
-    nixfmt-classic
     p7zip
     pstree
     pcmanfm
     pavucontrol
-    obsidian
     google-chrome
     qFlipper
-    gfn-electron
     discord
     telegram-desktop
     element-desktop
@@ -32,5 +35,11 @@
     wl-color-picker
     termscp
     _1password-gui
+    ffmpeg
+    mpv
+    kicad
+    systemfd
+    zoom-us
+    nodejs
   ];
 }

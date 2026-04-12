@@ -28,7 +28,7 @@
 
     base16Scheme = {
       base00 = "#0a0c10"; # default background
-      base01 = "#0a0c10"; # ligher background
+      base01 = "#23252a"; # ligher background
       base02 = "#2672f3"; # selection background - fix
       base03 = "#6e7681"; # comments, invisibles, line highlighting
       base04 = "#f0f6fc"; # dark foreground, caret, delimiters, operators

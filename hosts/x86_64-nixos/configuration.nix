@@ -35,7 +35,6 @@
     [ "nix-command" "flakes" "pipe-operators" ];
   nix.settings.extra-platforms = [ "aarch64-linux" ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "electron-35.7.5" ];
   nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker = { enable = true; };
@@ -56,6 +55,7 @@
       "docker"
       "tty"
       "plugdev"
+      "render"
     ];
     shell = pkgs.nushell;
   };
@@ -69,8 +69,8 @@
 
   home-manager.users.nanobreaker.home = {
     homeDirectory = "/home/nanobreaker";
-    stateVersion = "25.05";
+    stateVersion = "26.05";
   };
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

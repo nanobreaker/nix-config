@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.udev.enable = true;
   services.udev.extraRules = ''
     # qFlipper configuration
@@ -12,6 +13,10 @@
     SUBSYSTEM!="usb|tty|hidraw", GOTO="probe_rs_rules_end"
 
     # Please keep this list sorted by VID:PID
+
+    # Flipper
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{manufacturer}=="Flipper Devices Inc.", TAG+="uaccess"
+    ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", ATTRS{manufacturer}=="STMicroelectronics", TAG+="uaccess"
 
     # STMicroelectronics ST-LINK V1
     ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3744", MODE="660", GROUP="plugdev", TAG+="uaccess"
@@ -143,6 +148,7 @@
     # WCH Link (CMSIS-DAP compatible adapter)
     ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="8010", MODE="660", GROUP="plugdev", TAG+="uaccess"
     ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="8011", MODE="660", GROUP="plugdev", TAG+="uaccess"
+
 
     LABEL="probe_rs_rules_end"
   '';

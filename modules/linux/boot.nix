@@ -3,4 +3,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.kernelParams = [ "i915.enable_guc=2" ];
 }

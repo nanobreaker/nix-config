@@ -1,11 +1,22 @@
 { config, lib, pkgs, inputs, ... }: {
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # iHD (primary)
+      intel-vaapi-driver # i965 (fallback)
+      libva
+      libva-utils
+    ];
+  };
+
   environment.systemPackages = [
     pkgs.wayidle
     pkgs.waylock
     pkgs.slurp
     pkgs.wl-screenrec
+    pkgs.libva-utils
     pkgs.wl-clipboard-rs
     pkgs.gnome-control-center
     pkgs.xwayland-satellite-unstable
@@ -48,6 +59,11 @@
         screenshot-path = "~/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
         outputs = {
           "eDP-1" = {
+            mode = {
+              width = 1920;
+              height = 1080;
+              refresh = 59.977;
+            };
             scale = 1.0;
             position = {
               x = 2560;

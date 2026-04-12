@@ -7,7 +7,7 @@ in {
     jdk
     maven
     pkgs.jdk21
-    pkgs.jetbrains.idea-ultimate
+    pkgs.jetbrains.idea
     pkgs.jetbrains.jdk
     pkgs.graalvmPackages.graalvm-ce
   ];

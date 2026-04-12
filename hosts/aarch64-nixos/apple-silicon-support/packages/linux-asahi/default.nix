@@ -18,7 +18,7 @@ let
     buildLinux rec {
       inherit stdenv lib;
 
-      pname = "linux-asahi";
+      pname = "linux-asahi-fairydust";
       version = "6.19.11";
       modDirVersion = version;
       extraMeta.branch = "6.19";
@@ -26,8 +26,8 @@ let
       src = fetchFromGitHub {
         owner = "AsahiLinux";
         repo = "linux";
-        tag = "asahi-6.19.11-3";
-        hash = "sha256-4G/lUZS0PnOp6OuInpEFRt8yCYiQ/SDx49/JVtYxMYo=";
+        rev = "4e84610e5722c34e48fef3f33f7bd8faedb13348";
+        hash = "sha256-G32SzJW1paAUaBCnw5cou20WwpuVR8OZSDRpV58IUJU=";
       };
 
       kernelPatches = [
@@ -46,6 +46,13 @@ let
 
             # Can not be built as a module, defaults to no
             APPLE_M1_CPU_PMU = yes;
+
+            # Fairy Dust patches
+            APPLE_MAILBOX = yes;
+            APPLE_RTKIT = yes;
+            APPLE_RTKIT_HELPER = yes;
+            RUST_APPLE_RTKIT = yes;
+            RUST_FW_LOADER_ABSTRACTIONS = yes;
 
             # Defaults to 'y', but we want to allow the user to set options in modprobe.d
             HID_APPLE = module;

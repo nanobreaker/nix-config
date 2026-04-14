@@ -14,9 +14,9 @@
     pkgs.gnome-control-center
     pkgs.xwayland-satellite-unstable
     pkgs.gifsicle
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
   ];
 
+  services.libinput.enable = true;
   programs.xwayland.enable = true;
 
   home-manager.sharedModules = [
@@ -26,23 +26,24 @@
         enable = true;
         package = pkgs.niri-unstable;
         settings = {
-
-          spawn-at-startup = [
-            { command = [ "awww-daemon" ]; }
-            {
-              command = [
-                "awww"
-                "img"
-                "../assets/wallpaper_1.gif"
-              ];
-            }
-          ];
+          cursor.theme = "apple-cursor";
 
           prefer-no-csd = true;
 
-          environment = {
-            NIXOS_OZONE_WL = "1";
-          };
+          spawn-at-startup = [
+            {
+              command = [
+                "noctalia-shell"
+              ];
+            }
+            # {
+            #   command = [
+            #     "${pkgs.awww}/bin/awww"
+            #     "img"
+            #     "${../assets/wallpaper_1.gif}"
+            #   ];
+            # }
+          ];
 
           input = {
             keyboard.xkb.layout = "us,ru";
@@ -63,10 +64,41 @@
             workspace-auto-back-and-forth = true;
           };
 
+          outputs = {
+            "eDP-1" = {
+              mode = {
+                width = 3456;
+                height = 2160;
+                refresh = 120.000;
+              };
+              position = {
+                x = 2560;
+                y = 0;
+              };
+              scale = 2.0;
+              background-color = "#000000";
+            };
+
+            "DP-1" = {
+              mode = {
+                width = 2560;
+                height = 1440;
+                refresh = 239.958;
+              };
+              position = {
+                x = 0;
+                y = 0;
+              };
+              scale = 1.0;
+              focus-at-startup = true;
+              background-color = "#000000";
+            };
+          };
+
           screenshot-path = "~/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
 
           overview = {
-            backdrop-color = "transparent";
+            backdrop-color = "#000000";
           };
 
           gestures = {
@@ -143,7 +175,7 @@
           ];
 
           binds = {
-            "Mod+D".action.spawn = "fuzzel";
+            "Mod+D".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
             "Mod+Return".action.spawn = "ghostty";
             "Mod+Q".action.close-window = { };
             "Mod+S".action.switch-preset-column-width = { };
@@ -180,6 +212,7 @@
           };
           debug = {
             render-drm-device = "/dev/dri/renderD128";
+            honor-xdg-activation-with-invalid-serial = { };
           };
         };
       };

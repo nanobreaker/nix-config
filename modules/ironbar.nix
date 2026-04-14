@@ -16,8 +16,8 @@
     inputs.ironbar.homeManagerModules.default
     {
       programs.ironbar = {
-        enable = true;
-        systemd = true;
+        enable = false;
+        systemd = false;
         config = {
           package = inputs.ironbar;
           icon_theme = pkgs.nerd-fonts.symbols-only;
@@ -48,12 +48,82 @@
               center = [ ];
               end = [
                 {
+                  type = "battery";
+                  icon_size = 14;
+                  show_icon = false;
+                  format = " {percentage}%";
+                  justify = "center";
+                }
+                {
                   type = "clock";
                   format = "%d/%m/%Y %H:%M";
                   justify = "center";
                 }
               ];
             };
+
+            DP-1 = {
+              anchor_to_edges = true;
+              position = "top";
+              height = 13;
+              margin.top = 9;
+              margin.bottom = 0;
+              margin.left = 9;
+              margin.right = 9;
+              autohide = null;
+              start_hidden = false;
+
+              start = [
+                { type = "workspaces"; }
+                {
+                  type = "focused";
+                  show_icon = false;
+                  show_title = true;
+                  truncate = {
+                    mode = "end";
+                    max_length = 40;
+                  };
+                }
+              ];
+
+              center = [ ];
+
+              end = [
+                {
+                  type = "music";
+                  icon_size = 14;
+                  justify = "center";
+                  truncate = {
+                    mode = "end";
+                    max_length = 40;
+                  };
+                }
+                {
+                  type = "tray";
+                  icon_size = 14;
+                  justify = "center";
+                }
+                {
+                  type = "volume";
+                  format = "{icon} {percentage}%";
+                  icon_size = 14;
+                  justify = "center";
+                }
+                {
+                  type = "battery";
+                  icon_size = 14;
+                  show_icon = false;
+                  format = " {percentage}%";
+                  justify = "center";
+                }
+                {
+                  type = "clock";
+                  format = "%d/%m/%Y %H:%M";
+                  justify = "center";
+                }
+              ];
+            };
+
             DP-2 = {
               anchor_to_edges = true;
               position = "top";
@@ -102,12 +172,20 @@
                   justify = "center";
                 }
                 {
+                  type = "battery";
+                  icon_size = 14;
+                  show_icon = false;
+                  format = " {percentage}%";
+                  justify = "center";
+                }
+                {
                   type = "clock";
                   format = "%d/%m/%Y %H:%M";
                   justify = "center";
                 }
               ];
             };
+
           };
 
         };
@@ -191,33 +269,12 @@
             margin: 0px 4px;
           }
 
-          .upower {
-            color: @foreground;
+          .battery {
+            background: @background;
             background-color: @background;
-            padding: 0px 4px;
-            margin: 0px 4px;
           }
 
-          .upower .icon {
-            color: @foreground;
-          }
-
-          .upower .label {
-            color: @foreground;
-          }
-
-          .network_manager {
-            color: @foreground;
-            background-color: @background;
-            padding: 0px 4px;
-            margin: 0px 4px;
-          }
-
-          .network_manager .icon {
-            color: @foreground;
-          }
-
-          .network_manager .label {
+          .battery .label {
             color: @foreground;
           }
 

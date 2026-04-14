@@ -1,0 +1,27 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    fastfetch
+    ffmpeg
+    gimp3
+    imagemagick
+    impala
+    mpv
+    nixd
+    p7zip
+    pavucontrol
+    pciutils
+    pcmanfm
+    ripgrep
+    scooter
+    systemctl-tui
+    systemfd
+    telegram-desktop
+    usbutils
+    uutils-coreutils-noprefix
+    wl-color-picker
+    wpaperd
+    zed-editor
+    tree
+  ];
+}

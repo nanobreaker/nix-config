@@ -6,11 +6,13 @@
       "https://nixos-apple-silicon.cachix.org"
       "https://cache.garnix.io/"
       "https://nix-community.cachix.org/"
+      "https://noctalia.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
     experimental-features = [
       "flakes"
@@ -27,12 +29,17 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ironbar = {
       url = "github:JakeStanger/ironbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -71,16 +78,14 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             { nixpkgs.overlays = [ fenix.overlays.default ]; }
-            inputs.stylix.nixosModules.stylix
             ./hosts/x86_64-nixos/configuration.nix
           ];
         };
-        meet = nixpkgs.lib.nixosSystem {
+        viva = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
             { nixpkgs.overlays = [ fenix.overlays.default ]; }
-            inputs.stylix.nixosModules.stylix
             ./hosts/aarch64-nixos/configuration.nix
           ];
         };

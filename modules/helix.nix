@@ -28,7 +28,6 @@
 
   home-manager.sharedModules = [
     {
-
       programs.helix = {
         enable = true;
         defaultEditor = true;

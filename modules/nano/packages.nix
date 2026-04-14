@@ -1,0 +1,38 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    _1password-gui
+    discord
+    dua
+    element-desktop
+    fastfetch
+    ffmpeg
+    gdlauncher-carbon
+    gimp3
+    google-chrome
+    imagemagick
+    impala
+    kicad
+    mpv
+    nixd
+    nodejs
+    p7zip
+    pavucontrol
+    pciutils
+    pcmanfm
+    pstree
+    qFlipper
+    ripgrep
+    scooter
+    spotify
+    systemctl-tui
+    systemfd
+    telegram-desktop
+    termscp
+    usbutils
+    uutils-coreutils-noprefix
+    wl-color-picker
+    wpaperd
+    zed-editor
+  ];
+}

@@ -34,9 +34,14 @@
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix
+    ../../modules/docker.nix
+    ../../modules/vpn.nix
   ];
 
   networking.hostName = "thatwhichisapple";
+  networking.extraHosts = ''
+    127.0.0.1 artifactory.amz.mtmemgmt.com
+  '';
 
   users.users.thatwhichisapple = {
     isNormalUser = true;
@@ -61,6 +66,10 @@
       stateVersion = "26.05";
     };
   };
+
+  environment.shells = [
+    pkgs.nushell
+  ];
 
   system.stateVersion = "26.05";
 }

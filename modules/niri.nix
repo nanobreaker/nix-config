@@ -36,13 +36,6 @@
                 "noctalia-shell"
               ];
             }
-            # {
-            #   command = [
-            #     "${pkgs.awww}/bin/awww"
-            #     "img"
-            #     "${../assets/wallpaper_1.gif}"
-            #   ];
-            # }
           ];
 
           input = {
@@ -76,7 +69,6 @@
                 y = 0;
               };
               scale = 2.0;
-              background-color = "#000000";
             };
 
             "DP-1" = {
@@ -91,15 +83,10 @@
               };
               scale = 1.0;
               focus-at-startup = true;
-              background-color = "#000000";
             };
           };
 
           screenshot-path = "~/Screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png";
-
-          overview = {
-            backdrop-color = "#000000";
-          };
 
           gestures = {
             hot-corners.enable = false;
@@ -111,6 +98,8 @@
           };
 
           layout = {
+            background-color = "#000000";
+
             focus-ring = {
               enable = false;
               width = 0;
@@ -208,7 +197,6 @@
 
             "Mod+Home".action.screenshot = { };
             "Mod+Shift+Home".action.screenshot-screen = { };
-            "Mod+Shift+Ctrl+Home".action.spawn = "wl-screenrec -g '$(slurp)'";
           };
           debug = {
             render-drm-device = "/dev/dri/renderD128";

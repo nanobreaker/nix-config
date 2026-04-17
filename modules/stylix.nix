@@ -16,6 +16,8 @@
         enable = true;
         autoEnable = true;
 
+        targets.noctalia-shell.enable = false;
+
         polarity = "dark";
 
         cursor = {

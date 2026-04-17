@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   lib,
   pkgs,
   ...
@@ -31,6 +30,7 @@
       programs.helix = {
         enable = true;
         defaultEditor = true;
+        package = inputs.helix.packages.${pkgs.system}.default;
 
         settings = {
           theme = lib.mkForce "stylix-custom";
@@ -103,6 +103,9 @@
               config = {
                 deno.enable = true;
               };
+            };
+            uwu-ls = {
+              command = "uwu_colors";
             };
           };
 
@@ -184,7 +187,10 @@
               name = "nix";
               auto-format = true;
               formatter.command = "nixfmt";
-              language-servers = [ "nil" ];
+              language-servers = [
+                "nil"
+                "uwu-ls"
+              ];
             }
             {
               name = "roc";
@@ -228,6 +234,7 @@
             "ui.bufferline.background" = "#0a0c10";
             "ui.gutter.selected" = "#0a0c10";
             "ui.virtual.whitespace" = "#231f20";
+            "ui.window" = "#231f20";
           };
         };
       };

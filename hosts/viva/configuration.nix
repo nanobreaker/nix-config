@@ -31,7 +31,7 @@
     ../../modules/tuigreet.nix
     ../../modules/viva/packages.nix
     ../../modules/viva/asahi.nix
-    ../../modules/vpn.nix
+    ../../modules/viva/openconnect.nix
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix

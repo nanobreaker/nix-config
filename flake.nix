@@ -1,61 +1,65 @@
 {
-  description = "thatwhichisnot's personalized nixos configuration";
+  description = "thatwhichisnot's nixos flake based configuration";
 
-  nixConfig.extra-substituters = [
-    "https://nixos-apple-silicon.cachix.org"
-    "https://nix-community.cachix.org/"
-    "https://noctalia.cachix.org"
-  ];
+  nixConfig = {
+    extra-substituters = [
+      "https://nixos-apple-silicon.cachix.org"
+      "https://nix-community.cachix.org/"
+      "https://noctalia.cachix.org"
+    ];
 
-  nixConfig.extra-trusted-public-keys = [
-    "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
-    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-  ];
+    extra-trusted-public-keys = [
+      "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
 
-  nixConfig.experimental-features = [
-    "flakes"
-    "nix-command"
-  ];
+    experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
 
-  nixConfig.trusted-users = [
-    "root"
-    "@build"
-    "@wheel"
-    "@admin"
-  ];
+    trusted-users = [
+      "root"
+      "@build"
+      "@wheel"
+      "@admin"
+    ];
 
-  nixConfig.warn-dirty = false;
-  nixConfig.show-trace = true;
+    show-trace = true;
+  };
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  inputs.apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
-  inputs.awww.url = "git+https://codeberg.org/LGFae/awww";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
 
-  inputs.fenix.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
+    fenix.url = "github:nix-community/fenix";
 
-  inputs.globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
+    globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
 
-  inputs.helix.url = "github:helix-editor/helix";
+    helix.url = "github:helix-editor/helix";
 
-  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
 
-  inputs.ironbar.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.ironbar.url = "github:JakeStanger/ironbar";
+    ironbar.inputs.nixpkgs.follows = "nixpkgs";
+    ironbar.url = "github:JakeStanger/ironbar";
 
-  inputs.niri.url = "github:sodiboo/niri-flake";
-  inputs.noctalia.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.noctalia.url = "github:noctalia-dev/noctalia-shell";
+    niri.url = "github:sodiboo/niri-flake";
 
-  inputs.stylix.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.stylix.url = "github:nix-community/stylix";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
 
-  inputs.zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.zen-browser.url = "github:youwen5/zen-browser-flake";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:nix-community/stylix";
+
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    zen-browser.url = "github:youwen5/zen-browser-flake";
+  };
 
   outputs =
     inputs@{

@@ -11,6 +11,7 @@
 
   environment.systemPackages = [
     pkgs.vscode-langservers-extracted
+    pkgs.typescript-language-server
     pkgs.markdown-oxide
     pkgs.nixfmt
     pkgs.nil
@@ -18,8 +19,6 @@
     pkgs.lldb
     pkgs.yaml-language-server
     pkgs.zls
-    pkgs.deno
-    pkgs.jdt-language-server
     pkgs.taplo
     pkgs.clang
     pkgs.clang-tools
@@ -30,7 +29,7 @@
       programs.helix = {
         enable = true;
         defaultEditor = true;
-        package = inputs.helix.packages.${pkgs.system}.default;
+        package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         settings = {
           theme = lib.mkForce "stylix-custom";
@@ -82,30 +81,36 @@
 
         languages = {
           language-server = {
-            rust-analyzer = {
-              config = {
-                cargo.features = "all";
-                check.command = "clippy";
-                completion.callable.snippets = "add_parentheses";
-              };
-            };
-            roc-ls = {
-              command = "roc_language_server";
-            };
-            jdtls = {
-              command = "jdtls";
-            };
-            deno-lsp = {
-              command = "deno";
-              args = [
-                "lsp"
-              ];
-              config = {
-                deno.enable = true;
-              };
-            };
             uwu-ls = {
               command = "uwu_colors";
+            };
+            eslint-ls = {
+              command = "vscode-eslint-language-server";
+              args = [ "--stdio" ];
+              config = {
+                validate = "on";
+                run = "onType";
+                experimental = {
+                  useFlatConfig = false;
+                };
+                rulesCustomizations = [ ];
+                nodePath = "";
+                problems = {
+                  shortenToSingleLine = false;
+                };
+                codeAction = {
+                  disableRuleComment = {
+                    enable = true;
+                    location = "separateLine";
+                  };
+                  showDocumentation = {
+                    enable = true;
+                  };
+                };
+                workingDirectory = {
+                  mode = "location";
+                };
+              };
             };
           };
 
@@ -117,7 +122,6 @@
             {
               name = "java";
               auto-format = true;
-              language-servers = [ "jdtls" ];
             }
             {
               name = "html";
@@ -141,11 +145,13 @@
                 "mjs"
               ];
               roots = [
-                "deno.json"
-                "deno.jsonc"
                 "package.json"
+                ".eslintrc.js"
               ];
-              language-servers = [ "deno-lsp" ];
+              language-servers = [
+                "eslint-ls"
+                "typescript-language-server"
+              ];
             }
             {
               name = "typescript";
@@ -157,11 +163,12 @@
                 "mts"
               ];
               roots = [
-                "deno.json"
-                "deno.jsonc"
                 "package.json"
               ];
-              language-servers = [ "deno-lsp" ];
+              language-servers = [
+                "eslint-ls"
+                "typescript-language-server"
+              ];
             }
             {
               name = "markdown";
@@ -191,37 +198,6 @@
                 "nil"
                 "uwu-ls"
               ];
-            }
-            {
-              name = "roc";
-              scope = "source.roc";
-              injection-regex = "roc";
-              file-types = [ "roc" ];
-              shebangs = [ "roc" ];
-              auto-format = true;
-              comment-token = "#";
-              roots = [ ];
-              indent = {
-                tab-width = 2;
-                unit = "  ";
-              };
-              language-servers = [ "roc-ls" ];
-              formatter.command = "roc";
-              formatter.args = [
-                "format"
-                "--stdin"
-                "--stdout"
-              ];
-            }
-          ];
-
-          grammar = [
-            {
-              name = "roc";
-              source = {
-                git = "https://github.com/faldor20/tree-sitter-roc.git";
-                rev = "0b1afe88161cbd81f5ddea1bb4fa786314ed49a7";
-              };
             }
           ];
         };

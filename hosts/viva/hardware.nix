@@ -24,6 +24,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+  boot.kernel.sysctl."vm.mmap_rnd_bits" = 31;
 
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 

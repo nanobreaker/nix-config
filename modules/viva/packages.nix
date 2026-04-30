@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    fastfetch
     ffmpeg
     gimp3
     imagemagick
@@ -27,5 +26,9 @@
     uwu-colors
     nodejs_25
     teams-for-linux
+    steel
+    devenv
+    ncspot
+    ungoogled-chromium
   ];
 }

@@ -8,6 +8,7 @@
 
   environment.systemPackages = [
     pkgs.slurp
+    pkgs.wf-recorder
     pkgs.wl-screenrec
     pkgs.libva-utils
     pkgs.wl-clipboard-rs
@@ -195,8 +196,9 @@
             "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = { };
             "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = { };
 
-            "Mod+Home".action.screenshot = { };
-            "Mod+Shift+Home".action.screenshot-screen = { };
+            "Mod+F12".action.screenshot = { };
+            "Mod+Shift+F12".action.screenshot-screen = { };
+            "Mod+Shift+Ctrl+F12".action.spawn = "wl-screenrec -g '$(slurp)'";
           };
           debug = {
             render-drm-device = "/dev/dri/renderD128";

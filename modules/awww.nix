@@ -30,7 +30,7 @@
 
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = inputs.nix-assets.assets.wallpapers.motion.waneella-clouds;
+      ExecStart = "${pkgs.awww}/bin/awww img ${inputs.nix-assets.assets.wallpapers.motion.waneella-clouds}";
     };
   };
 

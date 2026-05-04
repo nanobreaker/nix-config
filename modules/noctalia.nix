@@ -137,6 +137,8 @@
                 {
                   id = "ControlCenter";
                   useDistroLogo = true;
+                  enableColorization = true;
+                  iconColor = "#f0f6fc";
                 }
                 {
                   hideUnoccupied = false;

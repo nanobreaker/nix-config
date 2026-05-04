@@ -1,19 +1,13 @@
 *
 
 !.gitignore
-!rust-toolchain.toml
 
 !docs/
 !docs/README.md
 !docs/LICENSE.md
 
-!assets/
-!assets/**/
-
 !hosts/
 !hosts/**/
-
-!lib/
 
 !modules/
 !modules/**/

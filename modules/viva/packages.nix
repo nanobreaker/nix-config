@@ -23,7 +23,6 @@
     zed-editor
     tree
     nautilus
-    uwu-colors
     nodejs_25
     teams-for-linux
     steel

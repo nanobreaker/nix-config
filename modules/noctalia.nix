@@ -4,114 +4,9 @@
   inputs,
   ...
 }:
-let
-  schemeName = "TrueColors";
-  schemeJson = builtins.toJSON {
-    dark = {
-      mPrimary = "#f0f6fc";
-      mOnPrimary = "#0a0c10";
-      mSecondary = "#ffb757";
-      mOnSecondary = "#0a0c10";
-      mTertiary = "#0a0c10";
-      mOnTertiary = "#ffb757";
-      mError = "#0a0c10";
-      mOnError = "#ff9492";
-
-      mSurface = "#0a0c10";
-      mOnSurface = "#f0f6fc";
-      mHover = "#ffb757";
-      mOnHover = "#0a0c10";
-      mSurfaceVariant = "#23252a";
-      mOnSurfaceVariant = "#f0f6fc";
-      mOutline = "#f0f6fc";
-      mShadow = "#000000";
-
-      terminal = {
-        background = "#0a0c10";
-        foreground = "#f0f6fc";
-        cursor = "#f0f6fc";
-        cursorText = "#0a0c10";
-        selectionBackground = "#2672f3";
-        selectionForeground = "#f0f6fc";
-
-        normal = {
-          black = "#0a0c10";
-          red = "#ff9492";
-          green = "#addcff";
-          yellow = "#ffb757";
-          blue = "#2672f3";
-          magenta = "#ddb7ff";
-          cyan = "#addcff";
-          white = "#f0f6fc";
-        };
-
-        bright = {
-          black = "#6e7681";
-          red = "#ff9492";
-          green = "#addcff";
-          yellow = "#ffb757";
-          blue = "#2672f3";
-          magenta = "#ddb7ff";
-          cyan = "#addcff";
-          white = "#eeeeee";
-        };
-      };
-    };
-
-    light = {
-      mPrimary = "#7a45b6";
-      mOnPrimary = "#ffffff";
-      mSecondary = "#005e8a";
-      mOnSecondary = "#ffffff";
-      mTertiary = "#9a5d00";
-      mOnTertiary = "#ffffff";
-      mError = "#b3261e";
-      mOnError = "#ffffff";
-
-      mSurface = "#f0f6fc";
-      mOnSurface = "#0a0c10";
-      mHover = "#dce6f2";
-      mOnHover = "#0a0c10";
-      mSurfaceVariant = "#e3ebf5";
-      mOnSurfaceVariant = "#23252a";
-      mOutline = "#6e7681";
-      mShadow = "#c9d3df";
-
-      terminal = {
-        background = "#f0f6fc";
-        foreground = "#0a0c10";
-        cursor = "#0a0c10";
-        cursorText = "#f0f6fc";
-        selectionBackground = "#2672f3";
-        selectionForeground = "#f0f6fc";
-
-        normal = {
-          black = "#f0f6fc";
-          red = "#b3261e";
-          green = "#005e8a";
-          yellow = "#9a5d00";
-          blue = "#2672f3";
-          magenta = "#7a45b6";
-          cyan = "#00838f";
-          white = "#23252a";
-        };
-
-        bright = {
-          black = "#6e7681";
-          red = "#b3261e";
-          green = "#005e8a";
-          yellow = "#9a5d00";
-          blue = "#2672f3";
-          magenta = "#7a45b6";
-          cyan = "#00838f";
-          white = "#0a0c10";
-        };
-      };
-    };
-  };
-in
 {
   environment.systemPackages = [
+    pkgs.udisks
     pkgs.quickshell
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
@@ -122,14 +17,50 @@ in
     {
       imports = [ inputs.noctalia.homeModules.default ];
 
-      xdg.configFile."noctalia/colorschemes/${schemeName}/${schemeName}.json".text = schemeJson;
-
       programs.noctalia-shell = {
         enable = true;
+
+        plugins = {
+          sources = [
+            {
+              enabled = true;
+              name = "Official Noctalia Plugins";
+              url = "https://github.com/noctalia-dev/noctalia-plugins";
+            }
+          ];
+          states = {
+            clipper = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+            usb-drive-manager = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+            color-scheme-creator = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+          };
+          version = 2;
+        };
+
+        pluginSettings = {
+          usb-drive-manager = {
+            file-browser = "nautilus";
+            hide-when-empty = "true";
+          };
+        };
+
         settings = {
           general = {
-            avatarImage = "${../assets/avatar.jpg}";
+            avatarImage = inputs.nix-assets.assets.avatars.main;
             dimmerOpacity = 0.0;
+            compactLockScreen = true;
+            showSessionButtonsOnLockScreen = false;
+            enableLockScreenCountdown = false;
+            enableLockScreenMediaControls = true;
+            lockScreenBlur = 0;
           };
 
           ui = {
@@ -158,7 +89,7 @@ in
 
           idle = {
             enabled = true;
-            lockTimeout = 660;
+            lockTimeout = 3600;
             screenOffTimeout = 0;
             suspendTimeout = 0;
             fadeDuration = 1;
@@ -177,29 +108,29 @@ in
           };
 
           colorSchemes = {
-            predefinedScheme = schemeName;
-            useWallpaperColors = false;
             darkMode = true;
-            syncGsettings = true;
+            useWallpaperColors = false;
+            syncGsettings = false;
           };
 
           bar = {
+            position = "top";
             barType = "floating";
             density = "compact";
-            position = "top";
+
             displayMode = "always_visible";
 
-            backgroundOpacity = lib.mkForce 0.00;
             useSeparateOpacity = true;
+            backgroundOpacity = lib.mkForce 0.00;
 
             showOutline = false;
             showCapsule = false;
 
-            fontScale = 1;
+            fontScale = 1.1;
             enableExclusionZoneInset = true;
 
             marginVertical = 4;
-            marginHorizontal = 4;
+            marginHorizontal = 9;
 
             widgets = {
               left = [
@@ -216,11 +147,13 @@ in
               center = [
                 {
                   id = "ActiveWindow";
-                  maxWidth = 400.0;
+                  maxWidth = 700.0;
                 }
               ];
               right = [
                 { id = "Tray"; }
+                { id = "plugin:usb-drive-manager"; }
+                { id = "plugin:color-scheme-creator"; }
                 { id = "NotificationHistory"; }
                 { id = "Volume"; }
                 { id = "Network"; }
@@ -239,12 +172,28 @@ in
               ];
             };
           };
+
           location = {
             monthBeforeDay = true;
             name = "Chisinau";
           };
+
         };
       };
     }
   ];
+
+  specialisation.light.configuration = {
+    home-manager.sharedModules = [
+      {
+        programs.noctalia-shell = {
+          settings = {
+            colorSchemes = {
+              darkMode = lib.mkForce false;
+            };
+          };
+        };
+      }
+    ];
+  };
 }

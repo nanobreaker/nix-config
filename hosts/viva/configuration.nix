@@ -5,6 +5,7 @@
 {
   imports = [
     ./hardware.nix
+    ../../modules/awww.nix
     ../../modules/btop.nix
     ../../modules/docker.nix
     ../../modules/fonts.nix

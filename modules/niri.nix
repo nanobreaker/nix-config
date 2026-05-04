@@ -6,15 +6,15 @@
 {
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
 
-  environment.systemPackages = [
-    pkgs.slurp
-    pkgs.wf-recorder
-    pkgs.wl-screenrec
-    pkgs.libva-utils
-    pkgs.wl-clipboard-rs
-    pkgs.gnome-control-center
-    pkgs.xwayland-satellite-unstable
-    pkgs.gifsicle
+  environment.systemPackages = with pkgs; [
+    slurp
+    wf-recorder
+    wl-screenrec
+    wl-clipboard-rs
+    cliphist
+    gifsicle
+    gnome-control-center
+    xwayland-satellite-unstable
   ];
 
   services.libinput.enable = true;
@@ -27,7 +27,11 @@
         enable = true;
         package = pkgs.niri-unstable;
         settings = {
-          cursor.theme = "apple-cursor";
+          cursor = {
+            theme = "apple-cursor";
+            size = 7;
+            hide-when-typing = true;
+          };
 
           prefer-no-csd = true;
 
@@ -91,11 +95,6 @@
 
           gestures = {
             hot-corners.enable = false;
-          };
-
-          cursor = {
-            size = 9;
-            hide-when-typing = true;
           };
 
           layout = {
@@ -162,10 +161,23 @@
               };
               clip-to-geometry = true;
             }
+            # {
+            #   matches = [
+            #     {
+            #       app-id = "^ghostty$";
+            #     }
+            #   ];
+            #   background-effect = {
+            #     blur = true;
+            #   };
+            # }
           ];
 
           binds = {
             "Mod+D".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
+            "Mod+N".action.spawn-sh = "noctalia-shell ipc call plugin:clipper toggle";
+            "Mod+L".action.spawn = "noctalia-shell ipc call lockScreen lock";
+
             "Mod+Return".action.spawn = "ghostty";
             "Mod+Q".action.close-window = { };
             "Mod+S".action.switch-preset-column-width = { };

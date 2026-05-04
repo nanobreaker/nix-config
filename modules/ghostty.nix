@@ -17,8 +17,7 @@
           font-size = 18;
           font-family = "Berkeley Mono";
 
-          background = "0a0c0f";
-          foreground = "ffffff";
+          # background-opacity = 1;
 
           cursor-style = "block";
           cursor-style-blink = false;

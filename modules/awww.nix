@@ -20,18 +20,18 @@
     };
   };
 
-  # systemd.user.services.awww = {
-  #   description = "Set wallpaper with awww";
+  systemd.user.services.awww = {
+    description = "Set wallpaper with awww";
 
-  #   wants = [ "awww.service" ];
-  #   after = [ "awww.service" ];
-  #   wantedBy = [ "graphical-session.target" ];
-  #   partOf = [ "graphical-session.target" ];
+    wants = [ "awww-daemon.service" ];
+    after = [ "awww-daemon.service" ];
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
 
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     ExecStart = "${pkgs.awww}/bin/awww img ${../assets/wallpaper_1.gif}";
-  #   };
-  # };
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = inputs.nix-assets.assets.wallpapers.motion.waneella-clouds;
+    };
+  };
 
 }

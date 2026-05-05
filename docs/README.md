@@ -26,8 +26,11 @@ and software in just one repo.
   | viva | Apple MacBook Pro (16-inch, M1 Max) | daily driver |
   | nano | Dell Precision 7540                 | home server  |
 
-> viva host is possible thanks to asahi linux project
-> [nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon)
+> !\[IMPORTANT\] Thanks to \[Asahi
+> Linux\]([https://asahilinux.org](https://asahilinux.org)) project linux on
+> apple silicon is possible. See
+> \[nixos-apple-silicon\](\[[https://github.com/nix-community/nixos-apple-silicon\](https://github.com/nix-community/nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon))
+> to understand how to install NixOS on apple silicon.
 
 ## Packages
 
@@ -112,4 +115,4 @@ sudo nixos-rebuild switch --flake .#nixos
 # Licensing
 
 The code in this project is licensed under MIT license. Check
-[LICENSE](LICENSE.md) for further details.
+\[LICENSE\](LICENSE.md) for further details.

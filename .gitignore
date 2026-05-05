@@ -1,6 +1,7 @@
 *
 
 !.gitignore
+!.panache.toml
 
 !docs/
 !docs/README.md

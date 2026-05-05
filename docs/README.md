@@ -5,90 +5,69 @@
 
 # Overview
 
-This repo represents uniform structure that describes software/hardware
-configuration files based on nix package manager, flakes and home-manager. It
-unlocks ability to reproduce my personalized setup on new host without any time
-consuming hassle.
+Repository to store and share my personalized nixos configuration. It unlocks
+ability to reproduce my setup on new host in few commands assuming that it has
+nixos already installed.
 
 ## Motivation
 
-Setting up your favorite environment on new machine is a time-consuming task,
-furthermore if you want to keep them all in sync between machines then it's even
-more time-consuming, eventually I got tired of configuring and installing
-everything again until I found NixOS, and it's declarative ecosystem. It's a big
-pleasure to be able to define the whole system configuration such as hardware
-and software in just one repo.
+Over years I simply got tired of configuring, reconfiguring, deconfiguring many
+systems. I had dotfiles repo, but is just was not enough, I still wanted to have
+a way to reproduce my whole system including packages, hardware configs and etc.
+One day I discovered NixOS and it's ecosystem and never looked back. For me this
+is most bleeding edge solution for managing your environment with very cool
+features, for instance generations, in case if you broke something you can
+always boot into the previous version of your config, this was never real on any
+other system. So here we are in my single repo that describes configurations for
+the hosts machines that I posses.
 
 ## Hosts
 
-Thanks to ![Asahi Linux](https://asahilinux.org) and
-![nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon)
-nixos is possible on apple silicon.
+  | name | host                     |
+  | ---- | ------------------------ |
+  | viva | Apple MacBook Pro M1 Max |
+  | nano | Dell Precision 7540      |
 
-  | name | host                                | description  |
-  | ---- | ----------------------------------- | ------------ |
-  | viva | Apple MacBook Pro (16-inch, M1 Max) | daily driver |
-  | nano | Dell Precision 7540                 | home server  |
+Thanks to ![asahi linux](https://asahilinux.org) and
+![nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon) it
+is possible to install nixos on apple silicon.
 
 ## Packages
 
-List of software that I prefer in my daily life and work workflows, I prefer to
-use software written in languages that understand, so I can explore those
-solutions and contribute if needed. Also, I'm huge fan of rust written apps I
-and believe there is no better alternative right now.
+Below lists of essential packages that give my system needed vibe.
 
-### TUI
+### Graphics
 
-  | name          | description                  | language |
-  | ------------- | ---------------------------- | -------- |
-  | tuigreet      | console greeter              | rust     |
-  | ghostty       | terminal emulator            | zig      |
-  | nushell       | shell                        | rust     |
-  | starship      | cross-shell prompt           | rust     |
-  | btop          | a monitor of resources       | c++      |
-  | yazi          | terminal file manager        | rust     |
-  | p7zip         | file archiver                | rust     |
-  | ripgrep       | search tool                  | rust     |
-  | scooter       | interactive find-and-replace | rust     |
-  | dua-cli       | disk usage analyzer          | rust     |
-  | systemctl-tui | systemd services             | rust     |
-  | gitui         | git tui                      | rust     |
-  | impala        | wifi tui                     | rust     |
-  | imagemagick   | edit, convert bitmap images  | c        |
+  | name           | description        |
+  | -------------- | ------------------ |
+  | niri           | wayland compositor |
+  | noctalia-shell | desktop shell      |
+  | awww           | wallpaper daemon   |
+  | nautilus       | file browser       |
+  | zen            | internet browser   |
 
-### GUI
+### Terminal
 
-  | name            | description                          | language |
-  | --------------- | ------------------------------------ | -------- |
-  | niri            | scrollable-tiling wayland compositor | rust     |
-  | noctalia-shell  | shell environment                    | c++      |
-  | nautilus        | file manager                         | c        |
-  | awww            | wallpaper daemon                     | rust     |
-  | slurp           | region selector for wayland          | c        |
-  | wl-screenrec    | screen recording                     | rust     |
-  | wl-clipboard-rs | clipboard                            | rust     |
+  | name     | description           |
+  | -------- | --------------------- |
+  | tuigreet | boot greeter          |
+  | ghostty  | terminal emulator     |
+  | nushell  | terminal shell        |
+  | starship | terminal shell prompt |
 
 ### IDEs
 
-  | name          | description                            | language |
-  | ------------- | -------------------------------------- | -------- |
-  | helix         | post-modern vim-like modal text editor | rust     |
-  | intellij idea | java ide                               | java     |
-  | zed           | rust ide                               | rust     |
+  | name  | description       |
+  | ----- | ----------------- |
+  | helix | modal text editor |
 
 ### Other
 
-  | name             | description        | language   |
-  | ---------------- | ------------------ | ---------- |
-  | stylix           | theming            | nix        |
-  | telegram-desktop | messenger          | c++        |
-  | discord          | messenger          | javascript |
-  | spotify          | music player       | javascript |
-  | google-chrome    | browser            | c/c++      |
-  | gimp3            | image manipulation | c          |
-  | obsidian         | note taking        | javascript |
-  | berkeley-mono    | font               |            |
-  | nerd-icons       | icons              |            |
+  | name          | description |
+  | ------------- | ----------- |
+  | stylix        | theming     |
+  | berkeley-mono | font        |
+  | nerd-icons    | icons       |
 
 # Getting Started
 

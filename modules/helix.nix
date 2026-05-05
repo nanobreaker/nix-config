@@ -9,19 +9,19 @@
     shellAliases.x = "hx";
   };
 
-  environment.systemPackages = [
-    pkgs.vscode-langservers-extracted
-    pkgs.typescript-language-server
-    pkgs.markdown-oxide
-    pkgs.nixfmt
-    pkgs.nil
-    pkgs.rust-analyzer-nightly
-    pkgs.lldb
-    pkgs.yaml-language-server
-    pkgs.zls
-    pkgs.taplo
-    pkgs.clang
-    pkgs.clang-tools
+  environment.systemPackages = with pkgs; [
+    vscode-langservers-extracted
+    typescript-language-server
+    panache
+    nixfmt
+    nil
+    rust-analyzer-nightly
+    lldb
+    yaml-language-server
+    zls
+    taplo
+    clang
+    clang-tools
   ];
 
   home-manager.sharedModules = [
@@ -32,7 +32,7 @@
         package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         themes = {
-          truecolors = {
+          truecolors-dark = {
             "attribute" = "base09";
             "comment" = {
               fg = "base03";
@@ -266,7 +266,8 @@
         };
 
         settings = {
-          theme = lib.mkForce "truecolors";
+          theme = lib.mkForce "truecolors-dark";
+
           editor = {
             auto-format = true;
             auto-completion = true;
@@ -349,6 +350,10 @@
                 };
               };
             };
+            panache-ls = {
+              command = "panache";
+              args = [ "lsp" ];
+            };
           };
 
           language = [
@@ -410,6 +415,9 @@
             {
               name = "markdown";
               auto-format = true;
+              language-servers = [
+                "panache-ls"
+              ];
             }
             {
               name = "yaml";

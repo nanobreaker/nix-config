@@ -1,33 +1,33 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    devenv
     ffmpeg
     gimp3
     imagemagick
     impala
     mpv
+    nautilus
+    ncspot
     nixd
+    nodejs_25
+    obsidian
     p7zip
     pavucontrol
     pciutils
     pcmanfm
     ripgrep
     scooter
+    steel
     systemctl-tui
     systemfd
+    teams-for-linux
     telegram-desktop
+    tree
     usbutils
     uutils-coreutils-noprefix
     wl-color-picker
     wpaperd
     zed-editor
-    tree
-    nautilus
-    nodejs_25
-    teams-for-linux
-    steel
-    devenv
-    ncspot
-    ungoogled-chromium
   ];
 }

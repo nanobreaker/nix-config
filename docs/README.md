@@ -19,7 +19,17 @@ everything again until I found NixOS, and it's declarative ecosystem. It's a big
 pleasure to be able to define the whole system configuration such as hardware
 and software in just one repo.
 
-## Software
+## Hosts
+
+  | name | host                                | description  |
+  | ---- | ----------------------------------- | ------------ |
+  | viva | Apple MacBook Pro (16-inch, M1 Max) | daily driver |
+  | nano | Dell Precision 7540                 | home server  |
+
+> viva host is possible thanks to asahi linux project
+> [nixos-apple-silicon](https://github.com/nix-community/nixos-apple-silicon)
+
+## Packages
 
 List of software that I prefer in my daily life and work workflows, I prefer to
 use software written in languages that understand, so I can explore those

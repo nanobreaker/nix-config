@@ -82,7 +82,7 @@ git clone git@github.com:nanobreaker/nix-config.git ~/.config/nix-config
 
 ## Testing
 
-For safety I recommend always running `check` command
+Before building you can always check if configuration contains any issues.
 
 ```shell
 nix flake check

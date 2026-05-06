@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    devenv
     ffmpeg
     gimp3
     imagemagick
@@ -15,9 +14,7 @@
     p7zip
     pavucontrol
     pciutils
-    pcmanfm
     ripgrep
-    scooter
     steel
     systemctl-tui
     systemfd
@@ -27,7 +24,6 @@
     usbutils
     uutils-coreutils-noprefix
     wl-color-picker
-    wpaperd
     zed-editor
   ];
 }

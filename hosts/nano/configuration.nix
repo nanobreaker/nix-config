@@ -15,7 +15,7 @@
     ../../modules/localisation.nix
     ../../modules/nano/packages.nix
     ../../modules/networking.nix
-    ../../modules/nh.nix
+    ../../modules/nano/nh.nix
     ../../modules/niri.nix
     ../../modules/nix.nix
     ../../modules/nixpkgs.nix

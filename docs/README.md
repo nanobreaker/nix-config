@@ -71,22 +71,34 @@ Below lists of essential packages that give my system needed vibe.
 
 # Getting Started
 
-## Installation
+## Installing
+
+Simply clone the repository in the folder where you want to store it, I keep all
+the configs under .config directory.
 
 ```shell
 git clone git@github.com:nanobreaker/nix-config.git ~/.config/nix-config
 ```
 
-## Check
+## Testing
+
+For safety I recommend always running `check` command
 
 ```shell
 nix flake check
 ```
 
-## Build
+## Building
+
+There are two ways of applying changes to the system, using standart
+`nixos-rebuild` or enhanced `nh`.
 
 ```shell
-sudo nixos-rebuild switch --flake .#nixos
+sudo nixos-rebuild switch --flake .#viva
+```
+
+```shell
+nh os switch -H viva
 ```
 
 # Licensing

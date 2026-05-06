@@ -16,7 +16,6 @@
     ../../modules/ironbar.nix
     ../../modules/localisation.nix
     ../../modules/networking.nix
-    ../../modules/nh.nix
     ../../modules/niri.nix
     ../../modules/nix.nix
     ../../modules/nixpkgs.nix
@@ -33,6 +32,7 @@
     ../../modules/viva/packages.nix
     ../../modules/viva/asahi.nix
     ../../modules/viva/openconnect.nix
+    ../../modules/viva/nh.nix
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix

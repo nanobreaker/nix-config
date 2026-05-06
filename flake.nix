@@ -46,9 +46,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
 
-    ironbar.inputs.nixpkgs.follows = "nixpkgs";
-    ironbar.url = "github:JakeStanger/ironbar";
-
     niri.url = "github:sodiboo/niri-flake";
 
     noctalia.inputs.nixpkgs.follows = "nixpkgs";

@@ -10,7 +10,6 @@
     ../../modules/git.nix
     ../../modules/helix.nix
     ../../modules/home-manager.nix
-    ../../modules/ironbar.nix
     ../../modules/java.nix
     ../../modules/localisation.nix
     ../../modules/nano/packages.nix

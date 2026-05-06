@@ -13,7 +13,6 @@
     ../../modules/git.nix
     ../../modules/helix.nix
     ../../modules/home-manager.nix
-    ../../modules/ironbar.nix
     ../../modules/localisation.nix
     ../../modules/networking.nix
     ../../modules/niri.nix

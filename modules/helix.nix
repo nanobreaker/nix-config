@@ -14,6 +14,7 @@
     typescript-language-server
     panache
     nixfmt
+    nixfmt-tree
     nil
     rust-analyzer-nightly
     lldb

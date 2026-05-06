@@ -10,7 +10,7 @@
     nautilus
     ncspot
     nixd
-    nodejs_25
+    nodejs
     obsidian
     p7zip
     pavucontrol

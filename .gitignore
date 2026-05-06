@@ -1,7 +1,6 @@
 *
 
 !.gitignore
-!.panache.toml
 
 !docs/
 !docs/README.md
@@ -22,3 +21,4 @@
 !*.nu
 !*.txt
 !*.png
+!*.

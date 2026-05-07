@@ -1,3 +1,10 @@
-{ config, lib, ... }: {
-  home-manager.sharedModules = [{ programs.btop = { enable = true; }; }];
+{ ... }:
+{
+  home-manager.sharedModules = [
+    {
+      programs.btop = {
+        enable = true;
+      };
+    }
+  ];
 }

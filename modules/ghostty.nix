@@ -1,7 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
   ...
 }:
 {
@@ -16,8 +13,6 @@
         settings = {
           font-size = 18;
           font-family = "Berkeley Mono";
-
-          # background-opacity = 1;
 
           cursor-style = "block";
           cursor-style-blink = false;

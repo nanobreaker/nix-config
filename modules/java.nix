@@ -2,7 +2,8 @@
 let
   jdk = pkgs.jdk25;
   maven = pkgs.maven.override { jdk_headless = jdk; };
-in {
+in
+{
   environment.systemPackages = [
     jdk
     maven
@@ -12,5 +13,7 @@ in {
     pkgs.graalvmPackages.graalvm-ce
   ];
 
-  environment.variables = { JAVA_HOME = "${jdk}"; };
+  environment.variables = {
+    JAVA_HOME = "${jdk}";
+  };
 }

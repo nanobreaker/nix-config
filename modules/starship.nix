@@ -1,27 +1,29 @@
-{ pkgs, ... }: {
+{ ... }:
+{
+  home-manager.sharedModules = [
+    {
+      programs.starship = {
+        enable = true;
+        settings = {
+          add_newline = false;
 
-  home-manager.sharedModules = [{
-    programs.starship = {
-      enable = true;
-      settings = {
-        add_newline = false;
+          command_timeout = 1300;
+          scan_timeout = 30;
 
-        command_timeout = 1300;
-        scan_timeout = 30;
+          format = "$directory$character";
 
-        format = "$directory$character";
+          character = {
+            success_symbol = "|>";
+            error_symbol = "|>";
+          };
 
-        character = {
-          success_symbol = "|>";
-          error_symbol = "|>";
-        };
-
-        directory = {
-          format = "[$path]($style) ";
-          truncation_length = 1;
-          fish_style_pwd_dir_length = 1;
+          directory = {
+            format = "[$path]($style) ";
+            truncation_length = 1;
+            fish_style_pwd_dir_length = 1;
+          };
         };
       };
-    };
-  }];
+    }
+  ];
 }

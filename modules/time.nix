@@ -1,1 +1,4 @@
-{ config, pkgs, ... }: { time.timeZone = "Europe/Chisinau"; }
+{ ... }:
+{
+  time.timeZone = "Europe/Chisinau";
+}

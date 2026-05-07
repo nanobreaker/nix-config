@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ ... }:
+{
   services.dbus.enable = true;
   services.xserver.enable = true;
   services.xserver.xkb = {

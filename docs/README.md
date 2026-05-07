@@ -1,7 +1,6 @@
 # Preview
 
-![preview_0](screenshot-0.png)
-![preview_1](screenshot-1.png)
+![preview](preview.gif)
 
 # Overview
 

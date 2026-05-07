@@ -7,9 +7,7 @@
     element-desktop
     fastfetch
     ffmpeg
-    gdlauncher-carbon
     gimp3
-    google-chrome
     imagemagick
     impala
     kicad

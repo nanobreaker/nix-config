@@ -12,9 +12,9 @@
     ../../modules/home-manager.nix
     ../../modules/java.nix
     ../../modules/localisation.nix
+    ../../modules/nano/nh.nix
     ../../modules/nano/packages.nix
     ../../modules/networking.nix
-    ../../modules/nano/nh.nix
     ../../modules/niri.nix
     ../../modules/nix.nix
     ../../modules/nixpkgs.nix

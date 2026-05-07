@@ -12,26 +12,15 @@ in
     documentation = [ "man:awww-daemon(1)" ];
 
     partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    requisite = [ "graphical-session.target" ];
     wantedBy = [ "graphical-session.target" ];
 
     serviceConfig = {
       Type = "simple";
       ExecStart = "${awww}/bin/awww-daemon";
+      ExecStartPost = "${awww}/bin/awww img ${inputs.nix-assets.assets.wallpapers.motion.waneella-clouds}";
       Restart = "on-failure";
-    };
-  };
-
-  systemd.user.services.awww = {
-    description = "Set wallpaper with awww";
-
-    wants = [ "awww-daemon.service" ];
-    after = [ "awww-daemon.service" ];
-    partOf = [ "graphical-session.target" ];
-    wantedBy = [ "graphical-session.target" ];
-
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${awww}/bin/awww img ${inputs.nix-assets.assets.wallpapers.motion.waneella-clouds}";
     };
   };
 

@@ -32,6 +32,7 @@
     ../../modules/viva/asahi.nix
     ../../modules/viva/openconnect.nix
     ../../modules/viva/nh.nix
+    ../../modules/kanshi.nix
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix

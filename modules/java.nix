@@ -7,10 +7,9 @@ in
   environment.systemPackages = [
     jdk
     maven
-    pkgs.jdk21
+    pkgs.jdt-language-server
+    pkgs.quarkus
     pkgs.jetbrains.idea
-    pkgs.jetbrains.jdk
-    pkgs.graalvmPackages.graalvm-ce
   ];
 
   environment.variables = {

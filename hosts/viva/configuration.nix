@@ -37,6 +37,7 @@
     ../../modules/yazi.nix
     ../../modules/zen.nix
     ../../modules/fastfetch.nix
+    ../../modules/java.nix
   ];
 
   networking.hostName = "thatwhichisapple";

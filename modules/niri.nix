@@ -176,7 +176,7 @@
           binds = {
             "Mod+D".action.spawn-sh = "noctalia-shell ipc call launcher toggle";
             "Mod+N".action.spawn-sh = "noctalia-shell ipc call plugin:clipper toggle";
-            "Mod+L".action.spawn = "noctalia-shell ipc call lockScreen lock";
+            "Mod+L".action.spawn-sh = "noctalia-shell ipc call lockScreen lock";
 
             "Mod+Return".action.spawn = "ghostty";
             "Mod+Q".action.close-window = { };

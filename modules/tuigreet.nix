@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 let
   tuigreet = inputs.tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.tuigreet;
 in
@@ -17,7 +21,7 @@ in
 
       default_session = {
         user = "greeter";
-        command = "${tuigreet}/bin/tuigreet --time --cmd niri-session";
+        command = "${tuigreet}/bin/tuigreet --cmd niri-session";
       };
     };
   };

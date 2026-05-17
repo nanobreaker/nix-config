@@ -57,6 +57,9 @@
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:youwen5/zen-browser-flake";
 
+    tuigreet.inputs.nixpkgs.follows = "nixpkgs";
+    tuigreet.url = "github:NotAShelf/tuigreet";
+
     berkeley-mono.url = "git+ssh://git@github.com/nanobreaker/berkeley-mono.git";
 
     nix-assets.url = "git+ssh://git@github.com/nanobreaker/nix-assets.git";

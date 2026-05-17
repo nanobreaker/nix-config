@@ -10,6 +10,7 @@
     ncspot
     nixd
     nodejs
+    deno
     obsidian
     p7zip
     pavucontrol

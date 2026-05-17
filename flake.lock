@@ -125,6 +125,21 @@
         "url": "ssh://git@github.com/nanobreaker/berkeley-mono.git"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1777830388,
+        "narHash": "sha256-2uoQAqUk2H0ijQtGiWAyNeQYGYc6yfAcRRLlJAz4Gp8=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "d459c1350e96ce1a7e3859c513ef5e9869d67d6f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -734,6 +749,7 @@
         "nixpkgs": "nixpkgs_11",
         "noctalia": "noctalia",
         "stylix": "stylix",
+        "tuigreet": "tuigreet",
         "zen-browser": "zen-browser"
       }
     },
@@ -823,6 +839,27 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_4": {
+      "inputs": {
+        "nixpkgs": [
+          "tuigreet",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778555852,
+        "narHash": "sha256-55EmwooVAS4UpA0oWd5wilKPRqCiHD5BAej9QiNwheY=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "f29b0f7a9f367e0056b716f8aa137cb41e784444",
         "type": "github"
       },
       "original": {
@@ -992,6 +1029,28 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "tuigreet": {
+      "inputs": {
+        "crane": "crane",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_4"
+      },
+      "locked": {
+        "lastModified": 1778952707,
+        "narHash": "sha256-ykv8R+YziXbeu4RwfWvwmEQlTMA2jZDSDptxatYhp50=",
+        "owner": "NotAShelf",
+        "repo": "tuigreet",
+        "rev": "879634d1cdc7cf0b887545c6826cd0d392fb731c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NotAShelf",
+        "repo": "tuigreet",
         "type": "github"
       }
     },

@@ -1,25 +1,25 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  tuigreet = inputs.tuigreet.packages.${pkgs.stdenv.hostPlatform.system}.tuigreet;
+in
 {
-
-  environment.systemPackages = [ pkgs.tuigreet ];
+  environment.systemPackages = [
+    tuigreet
+  ];
 
   services.greetd = {
     enable = true;
+
     settings = {
+      terminal = {
+        vt = 1;
+      };
+
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+        user = "greeter";
+        command = "${tuigreet}/bin/tuigreet --time --cmd niri-session";
       };
     };
   };
 
-  # systemd.services.greetd.serviceConfig = {
-  #   Type = "idle";
-  #   StandardInput = "tty";
-  #   StandardOutput = "tty";
-  #   StandardError = "journal";
-  #   TTYPath = "/dev/tty1";
-  #   TTYReset = true;
-  #   TTYVHangup = true;
-  #   TTYVTDisallocate = true;
-  # };
 }

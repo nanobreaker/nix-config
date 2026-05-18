@@ -8,11 +8,14 @@
     ../../modules/awww.nix
     ../../modules/btop.nix
     ../../modules/docker.nix
+    ../../modules/fastfetch.nix
     ../../modules/fonts.nix
     ../../modules/ghostty.nix
     ../../modules/git.nix
     ../../modules/helix.nix
     ../../modules/home-manager.nix
+    ../../modules/java.nix
+    ../../modules/kanshi.nix
     ../../modules/localisation.nix
     ../../modules/networking.nix
     ../../modules/niri.nix
@@ -24,20 +27,18 @@
     ../../modules/probe-rs-tools.nix
     ../../modules/rust.nix
     ../../modules/security.nix
+    ../../modules/ssh-agent.nix
     ../../modules/starship.nix
     ../../modules/stylix.nix
     ../../modules/time.nix
     ../../modules/tuigreet.nix
-    ../../modules/viva/packages.nix
     ../../modules/viva/asahi.nix
-    ../../modules/viva/openconnect.nix
     ../../modules/viva/nh.nix
-    ../../modules/kanshi.nix
+    ../../modules/viva/openconnect.nix
+    ../../modules/viva/packages.nix
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix
-    ../../modules/fastfetch.nix
-    ../../modules/java.nix
   ];
 
   networking.hostName = "thatwhichisapple";

@@ -69,8 +69,6 @@
     inputs@{
       self,
       nixpkgs,
-      nix-darwin,
-      fenix,
       ...
     }:
     let

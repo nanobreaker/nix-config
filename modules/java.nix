@@ -10,6 +10,7 @@ in
     pkgs.jdt-language-server
     pkgs.quarkus
     pkgs.jetbrains.idea
+    pkgs.jetbrains.jdk
   ];
 
   environment.variables = {

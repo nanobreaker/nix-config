@@ -99,7 +99,7 @@ Clone the repository wherever you keep your configuration files. I usually keep
 mine under `~/.config.`.
 
 ```shell
-git clone git@github.com:nanobreaker/nix-config.git ~/.config/nix-config
+git clone https://github.com/thatwhichisdev/nix-config.git ~/.config/nix-config
 ```
 
 My configuration contains a few private flakes such as `berkeley-mono` and

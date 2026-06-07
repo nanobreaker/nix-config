@@ -2,12 +2,6 @@
 
 ![preview](preview.gif)
 
-# Overview
-
-Repository to store and share my personalized nixos configuration. It unlocks
-ability to reproduce my setup on new host in few commands assuming that it has
-nixos already installed.
-
 ## Motivation
 
 Configuration is part of everyday life as a software user. You either configure
@@ -29,6 +23,12 @@ Then I discovered NixOS and its ecosystem, and it completely changed how I think
 about managing an operating system. For me, NixOS is currently one of the most
 powerful and forward-looking ways to manage a reproducible environment. I doubt
 I will switch away from it anytime soon.
+
+# Overview
+
+Repository to store and share my personalized nixos configuration. It unlocks
+ability to reproduce my setup on new host in few commands assuming that it has
+nixos already installed.
 
 ## Hosts
 

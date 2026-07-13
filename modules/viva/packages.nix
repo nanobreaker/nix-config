@@ -26,5 +26,11 @@
     uutils-coreutils-noprefix
     wl-color-picker
     zed-editor
+    legcord
+    python3
+    gnumake
+    gcc
+    docker-compose
+    libusb1
   ];
 }

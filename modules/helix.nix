@@ -323,6 +323,20 @@
 
         languages = {
           language-server = {
+            rust-analyzer = {
+              command = "rust-analyzer";
+              config = {
+                procMacro = {
+                  enable = true;
+                };
+
+                cargo = {
+                  buildScripts = {
+                    enable = true;
+                  };
+                };
+              };
+            };
             eslint-ls = {
               command = "vscode-eslint-language-server";
               args = [ "--stdio" ];
@@ -361,6 +375,7 @@
             {
               name = "rust";
               auto-format = true;
+              language-servers = [ "rust-analyzer" ];
             }
             {
               name = "java";

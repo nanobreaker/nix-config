@@ -56,6 +56,7 @@
       "tty"
       "render"
       "docker"
+      "kvm"
     ];
     shell = pkgs.nushell;
   };

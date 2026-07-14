@@ -116,6 +116,14 @@ errors and other issues.
 nix flake check
 ```
 
+## Formatting
+
+To format repository simply run
+
+```shell
+nix fmt
+```
+
 ## Building
 
 Build and switch to a host configuration with `nixos-rebuild`.

@@ -22,6 +22,7 @@
     ];
 
     trusted-users = [
+      "thatwhichisapple"
       "root"
       "@build"
       "@wheel"
@@ -32,35 +33,35 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 
     awww.url = "git+https://codeberg.org/LGFae/awww";
 
-    fenix.inputs.nixpkgs.follows = "nixpkgs";
     fenix.url = "github:nix-community/fenix";
+    fenix.inputs.nixpkgs.follows = "nixpkgs";
 
     globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
 
     helix.url = "github:helix-editor/helix";
 
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
 
     niri.url = "github:sodiboo/niri-flake";
 
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:youwen5/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
-    tuigreet.inputs.nixpkgs.follows = "nixpkgs";
     tuigreet.url = "github:NotAShelf/tuigreet";
+    tuigreet.inputs.nixpkgs.follows = "nixpkgs";
 
     berkeley-mono.url = "git+ssh://git@github.com/nanobreaker/berkeley-mono.git";
 

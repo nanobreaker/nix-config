@@ -454,7 +454,7 @@
             {
               name = "nix";
               auto-format = true;
-              formatter.command = "nixfmt";
+              formatter.command = "nixfmt -";
               language-servers = [
                 "nil"
               ];

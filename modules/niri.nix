@@ -1,6 +1,6 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -161,16 +161,6 @@
               };
               clip-to-geometry = true;
             }
-            # {
-            #   matches = [
-            #     {
-            #       app-id = "^ghostty$";
-            #     }
-            #   ];
-            #   background-effect = {
-            #     blur = true;
-            #   };
-            # }
           ];
 
           binds = {

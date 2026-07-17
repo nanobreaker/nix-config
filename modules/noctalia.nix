@@ -1,7 +1,6 @@
 {
-  lib,
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -25,6 +24,7 @@
 
         settings = {
           accessibility = {
+            high_contrast = true;
             ui_scale = 1.0;
           };
 
@@ -32,18 +32,14 @@
             font_family = "Berkeley Mono SemiBold";
             time_format = "{:%H:%M}";
 
-            # Replacement for monthBeforeDay = true.
             date_format = "%m/%d/%Y";
 
             avatar_path = builtins.toString inputs.nix-assets.assets.avatars.main;
 
-            # Avoid the first-run wizard for a declarative installation.
             setup_wizard_enabled = false;
 
-            # Recommended when running Noctalia as a systemd user service.
             launch_apps_as_systemd_services = true;
 
-            # Replaces the old clipper plugin.
             clipboard_enabled = true;
 
             panel = {
@@ -52,7 +48,6 @@
               shadow = false;
             };
 
-            # These are startup-only graphics settings.
             shared_gl_context = true;
             disable_mipmaps = false;
           };
@@ -125,18 +120,15 @@
               enabled = true;
               position = "top";
 
-              # Replacement for displayMode = "always_visible".
               auto_hide = false;
 
               reserve_space = true;
               layer = "top";
 
-              # Closest v5 equivalent to compact density.
               thickness = 30;
               padding = 4;
               widget_spacing = 4;
 
-              # Transparent floating bar.
               background_opacity = 0.0;
               border_width = 0.0;
               shadow = false;
@@ -144,10 +136,7 @@
 
               radius = 12;
 
-              # Old marginHorizontal.
               margin_ends = 9;
-
-              # Old marginVertical for a top bar.
               margin_edge = 4;
 
               scale = 1.1;

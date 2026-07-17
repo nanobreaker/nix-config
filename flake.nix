@@ -76,6 +76,13 @@
     }:
     let
       inherit (self) outputs;
+
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in
     {
       nixosConfigurations = {
@@ -95,5 +102,6 @@
         };
       };
 
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }

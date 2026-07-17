@@ -112,11 +112,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1777891616,
-        "narHash": "sha256-mI6NdsRNBRFaYk6ezphOvQkLX3KvovWIf+EMI7PCo2g=",
+        "lastModified": 1784304849,
+        "narHash": "sha256-9nbHZYYvXOKSeganul1kUuFnl94BHmtM7xF0uAA4JvU=",
         "ref": "refs/heads/master",
-        "rev": "3bad0c957823cca611ca481606d5835552bf8e13",
-        "revCount": 1,
+        "rev": "936af24ba2fff16559bf38ebe59ff7bfbe6f0241",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/nanobreaker/berkeley-mono.git"
       },

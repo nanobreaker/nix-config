@@ -29,7 +29,7 @@
           };
 
           shell = {
-            font_family = "Berkeley Mono SemiBold";
+            font_family = "BerkeleyMono Nerd Font Mono";
             time_format = "{:%H:%M}";
 
             date_format = "%m/%d/%Y";
@@ -54,9 +54,38 @@
 
           lockscreen = {
             enabled = true;
-            blurred_desktop = false;
-            blur_intensity = 0.0;
+            blurred_desktop = true;
+            blur_intensity = 0.1;
             tint_intensity = 0.0;
+          };
+
+          lockscreen_widgets = {
+            enabled = true;
+
+            widget = {
+              "lockscreen-login-box@DP-1" = {
+                enabled = true;
+                type = "login_box";
+                output = "DP-1";
+
+                settings = {
+                  background_opacity = 0.0;
+                  show_login_button = false;
+                  center_password_text = true;
+                };
+              };
+              "lockscreen-login-box@eDP-1" = {
+                enabled = true;
+                type = "login_box";
+                output = "eDP-1";
+
+                settings = {
+                  background_opacity = 0.0;
+                  show_login_button = false;
+                  center_password_text = true;
+                };
+              };
+            };
           };
 
           wallpaper = {
@@ -127,7 +156,7 @@
 
               thickness = 30;
               padding = 4;
-              widget_spacing = 4;
+              widget_spacing = 7;
 
               background_opacity = 0.0;
               border_width = 0.0;
@@ -139,12 +168,13 @@
               margin_ends = 9;
               margin_edge = 4;
 
-              scale = 1.1;
-              font_family = "Berkeley Mono SemiBold";
-              font_weight = "bold";
+              scale = 1.0;
+              font_family = "BerkeleyMono Nerd Font Mono";
+              font_weight = "semibold";
 
               start = [
                 "control-center"
+                "theme_mode"
                 "workspaces"
               ];
 
@@ -154,19 +184,21 @@
 
               end = [
                 "tray"
-                "clipboard"
                 "notifications"
                 "volume"
-                "network"
                 "bluetooth"
+                "network"
                 "battery"
-                "theme_mode"
                 "clock"
               ];
             };
           };
 
           widget = {
+            control-center = {
+              glyph = "apple";
+            };
+
             workspaces = {
               style = "regular";
               display = "none";
@@ -190,10 +222,14 @@
               show_label = false;
             };
 
+            volume = {
+              show_label = false;
+            };
+
             battery = {
-              display_mode = "icon";
-              show_label = true;
-              warning_threshold = 30;
+              display_mode = "graphic";
+              show_label = false;
+              warning_threshold = 20;
               device = "auto";
             };
 

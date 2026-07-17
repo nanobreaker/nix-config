@@ -154,7 +154,7 @@ nix flake update
 To update a single input:
 
 ```shell
-nix flake lock --update-input <input-name>
+nix flake update <input-name>
 ```
 
 # Licensing

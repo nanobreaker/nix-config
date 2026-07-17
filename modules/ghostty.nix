@@ -9,7 +9,7 @@ _: {
         enable = true;
         settings = {
           font-size = 18;
-          font-family = "Berkeley Mono";
+          font-family = "BerkeleyMono Nerd Font Mono";
 
           cursor-style = "block";
           cursor-style-blink = false;

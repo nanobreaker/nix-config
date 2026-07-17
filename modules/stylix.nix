@@ -53,6 +53,7 @@ in
       stylix = {
         enable = true;
         autoEnable = true;
+        overlays.enable = false;
 
         polarity = "dark";
         base16Scheme = darkScheme;

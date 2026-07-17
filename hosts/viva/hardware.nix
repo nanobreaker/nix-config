@@ -16,6 +16,8 @@
   ];
 
   boot.kernelModules = [ ];
+  boot.kernel.sysctl."vm.mmap_rnd_bits" = 31;
+
   boot.extraModulePackages = [ ];
 
   boot.loader.systemd-boot.enable = true;
@@ -23,9 +25,10 @@
 
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
-  boot.kernel.sysctl."vm.mmap_rnd_bits" = 31;
-
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi = {
+    enable = true;
+    peripheralFirmwareDirectory = ./firmware;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/cee437a7-8a61-4c98-b3ba-be4e0a76734a";

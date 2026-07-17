@@ -76,14 +76,4 @@ in
     }
   ];
 
-  specialisation.light.configuration = {
-    home-manager.sharedModules = [
-      {
-        stylix = {
-          polarity = lib.mkForce "light";
-          base16Scheme = lib.mkForce lightScheme;
-        };
-      }
-    ];
-  };
 }

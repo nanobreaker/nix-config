@@ -7,70 +7,68 @@
 {
   environment.systemPackages = [
     pkgs.udisks
-    pkgs.quickshell
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  services.udisks2.enable = true;
   services.tuned.enable = true;
 
   home-manager.sharedModules = [
     {
-      imports = [ inputs.noctalia.homeModules.default ];
+      imports = [
+        inputs.noctalia.homeModules.default
+      ];
 
-      programs.noctalia-shell = {
+      programs.noctalia = {
         enable = true;
-
-        plugins = {
-          sources = [
-            {
-              enabled = true;
-              name = "Official Noctalia Plugins";
-              url = "https://github.com/noctalia-dev/noctalia-plugins";
-            }
-          ];
-          states = {
-            clipper = {
-              enabled = true;
-              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-            };
-            usb-drive-manager = {
-              enabled = true;
-              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-            };
-            color-scheme-creator = {
-              enabled = true;
-              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-            };
-          };
-          version = 2;
-        };
-
-        pluginSettings = {
-          usb-drive-manager = {
-            file-browser = "nautilus";
-            hide-when-empty = "true";
-          };
-        };
+        systemd.enable = true;
+        validateConfig = true;
 
         settings = {
-          general = {
-            avatarImage = inputs.nix-assets.assets.avatars.main;
-            dimmerOpacity = 0.0;
-            compactLockScreen = true;
-            showSessionButtonsOnLockScreen = false;
-            enableLockScreenCountdown = false;
-            enableLockScreenMediaControls = true;
-            lockScreenBlur = 0;
+          accessibility = {
+            ui_scale = 1.0;
           };
 
-          ui = {
-            fontDefault = "Berkeley Mono SemiBold";
-            fontFixed = "Berkeley Mono SemiBold";
-            fontDefaultScale = 1;
-            fontFixedScale = 1;
+          shell = {
+            font_family = "Berkeley Mono SemiBold";
+            time_format = "{:%H:%M}";
+
+            # Replacement for monthBeforeDay = true.
+            date_format = "%m/%d/%Y";
+
+            avatar_path = builtins.toString inputs.nix-assets.assets.avatars.main;
+
+            # Avoid the first-run wizard for a declarative installation.
+            setup_wizard_enabled = false;
+
+            # Recommended when running Noctalia as a systemd user service.
+            launch_apps_as_systemd_services = true;
+
+            # Replaces the old clipper plugin.
+            clipboard_enabled = true;
+
+            panel = {
+              transparency_mode = "solid";
+              borders = false;
+              shadow = false;
+            };
+
+            # These are startup-only graphics settings.
+            shared_gl_context = true;
+            disable_mipmaps = false;
+          };
+
+          lockscreen = {
+            enabled = true;
+            blurred_desktop = false;
+            blur_intensity = 0.0;
+            tint_intensity = 0.0;
           };
 
           wallpaper = {
+            enabled = false;
+          };
+
+          backdrop = {
             enabled = false;
           };
 
@@ -78,124 +76,145 @@
             enabled = false;
           };
 
-          desktopWidgets = {
+          desktop_widgets = {
             enabled = false;
           };
 
-          plugins = {
-            autoUpdate = false;
-            notifyUpdates = true;
-          };
-
           idle = {
-            enabled = true;
-            lockTimeout = 3600;
-            screenOffTimeout = 0;
-            suspendTimeout = 0;
-            fadeDuration = 1;
-            screenOffCommand = "";
-            lockCommand = "";
-            suspendCommand = "";
-            resumeScreenOffCommand = "";
-            resumeLockCommand = "";
-            resumeSuspendCommand = "";
-            customCommands = "[]";
+            pre_action_fade_seconds = 1.0;
+
+            behavior = {
+              lock = {
+                timeout = 3600;
+                action = "lock";
+                enabled = true;
+              };
+
+              "screen-off" = {
+                timeout = 0;
+                action = "screen_off";
+                enabled = false;
+              };
+
+              suspend = {
+                timeout = 0;
+                action = "lock_and_suspend";
+                enabled = false;
+              };
+            };
           };
 
-          noctaliaPerformance = {
-            disableWallpaper = true;
-            disableDesktopWidgets = true;
-          };
+          theme = {
+            mode = "dark";
 
-          colorSchemes = {
-            darkMode = true;
-            useWallpaperColors = false;
-            syncGsettings = false;
-          };
-
-          bar = {
-            position = "top";
-            barType = "floating";
-            density = "compact";
-
-            displayMode = "always_visible";
-
-            useSeparateOpacity = true;
-            backgroundOpacity = lib.mkForce 0.00;
-
-            showOutline = false;
-            showCapsule = false;
-
-            fontScale = 1.1;
-            enableExclusionZoneInset = true;
-
-            marginVertical = 4;
-            marginHorizontal = 9;
-
-            widgets = {
-              left = [
-                {
-                  id = "ControlCenter";
-                  useDistroLogo = true;
-                  enableColorization = true;
-                  iconColor = "#f0f6fc";
-                }
-                {
-                  hideUnoccupied = false;
-                  id = "Workspace";
-                  labelMode = "none";
-                }
-              ];
-              center = [
-                {
-                  id = "ActiveWindow";
-                  maxWidth = 700.0;
-                }
-              ];
-              right = [
-                { id = "Tray"; }
-                { id = "plugin:usb-drive-manager"; }
-                { id = "plugin:color-scheme-creator"; }
-                { id = "NotificationHistory"; }
-                { id = "Volume"; }
-                { id = "Network"; }
-                { id = "Bluetooth"; }
-                {
-                  id = "Battery";
-                  warningThreshold = 30;
-                  alwaysShowPercentage = true;
-                }
-                {
-                  id = "Clock";
-                  formatHorizontal = "HH:mm";
-                  useMonospacedFont = true;
-                  usePrimaryColor = true;
-                }
-              ];
+            templates = {
+              enable_builtin_templates = false;
+              enable_community_templates = false;
             };
           };
 
           location = {
-            monthBeforeDay = true;
-            name = "Chisinau";
+            auto_locate = false;
+            address = "Chisinau, Moldova";
           };
 
+          bar = {
+            order = [ "main" ];
+
+            main = {
+              enabled = true;
+              position = "top";
+
+              # Replacement for displayMode = "always_visible".
+              auto_hide = false;
+
+              reserve_space = true;
+              layer = "top";
+
+              # Closest v5 equivalent to compact density.
+              thickness = 30;
+              padding = 4;
+              widget_spacing = 4;
+
+              # Transparent floating bar.
+              background_opacity = 0.0;
+              border_width = 0.0;
+              shadow = false;
+              capsule = false;
+
+              radius = 12;
+
+              # Old marginHorizontal.
+              margin_ends = 9;
+
+              # Old marginVertical for a top bar.
+              margin_edge = 4;
+
+              scale = 1.1;
+              font_family = "Berkeley Mono SemiBold";
+              font_weight = "bold";
+
+              start = [
+                "control-center"
+                "workspaces"
+              ];
+
+              center = [
+                "active_window"
+              ];
+
+              end = [
+                "tray"
+                "clipboard"
+                "notifications"
+                "volume"
+                "network"
+                "bluetooth"
+                "battery"
+                "theme_mode"
+                "clock"
+              ];
+            };
+          };
+
+          widget = {
+            workspaces = {
+              style = "regular";
+              display = "none";
+              hide_when_empty = false;
+            };
+
+            active_window = {
+              min_length = 80;
+              max_length = 700;
+              icon_size = 14;
+              title_scroll = "on_hover";
+              display = "icon_and_text";
+              show_empty_label = false;
+            };
+
+            network = {
+              show_label = false;
+            };
+
+            bluetooth = {
+              show_label = false;
+            };
+
+            battery = {
+              display_mode = "icon";
+              show_label = true;
+              warning_threshold = 30;
+              device = "auto";
+            };
+
+            clock = {
+              format = "{:%H:%M}";
+              timezone = "Europe/Chisinau";
+            };
+          };
         };
       };
     }
   ];
-
-  specialisation.light.configuration = {
-    home-manager.sharedModules = [
-      {
-        programs.noctalia-shell = {
-          settings = {
-            colorSchemes = {
-              darkMode = lib.mkForce false;
-            };
-          };
-        };
-      }
-    ];
-  };
 }

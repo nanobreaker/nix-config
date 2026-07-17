@@ -5,4 +5,11 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.trusted-users = [
+    "thatwhichisapple"
+    "root"
+    "@build"
+    "@wheel"
+    "@admin"
+  ];
 }

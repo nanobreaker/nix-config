@@ -32,5 +32,6 @@
     gcc
     docker-compose
     libusb1
+    ragenix
   ];
 }

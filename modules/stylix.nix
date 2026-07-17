@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }:
 let
@@ -22,25 +21,6 @@ let
     base0D = "#f0f6fc"; # mPrimary
     base0E = "#ffb757"; # mSecondary
     base0F = "#3D2F00"; # not used
-  };
-
-  lightScheme = {
-    base00 = "#f8f9fa";
-    base01 = "#e4e6e9";
-    base02 = "#dce0e5";
-    base03 = "#8a9199";
-    base04 = "#5c6166";
-    base05 = "#42474c";
-    base06 = "#2f3337";
-    base07 = "#1f2328";
-    base08 = "#f07171";
-    base09 = "#ff8f40";
-    base0A = "#e6b450";
-    base0B = "#86b300";
-    base0C = "#4cbf99";
-    base0D = "#399ee6";
-    base0E = "#ddb7ff";
-    base0F = "#d95757";
   };
 in
 {

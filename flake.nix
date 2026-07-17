@@ -63,6 +63,9 @@
     tuigreet.url = "github:NotAShelf/tuigreet";
     tuigreet.inputs.nixpkgs.follows = "nixpkgs";
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     berkeley-mono.url = "git+ssh://git@github.com/nanobreaker/berkeley-mono.git";
 
     nix-assets.url = "git+ssh://git@github.com/nanobreaker/nix-assets.git";
@@ -83,8 +86,18 @@
       ];
 
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      treefmtEval = forAllSystems (
+        system: inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./modules/treefmt.nix
+      );
     in
     {
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
+      checks = forAllSystems (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
+
       nixosConfigurations = {
         nano = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -102,6 +115,5 @@
         };
       };
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 }

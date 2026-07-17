@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+_: {
   environment.variables = {
     TERMINAL = "ghostty";
   };

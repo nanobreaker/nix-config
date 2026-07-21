@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  services.resolved.enable = true;
+
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
   networking.networkmanager.plugins = [
@@ -8,8 +10,5 @@
 
   networking.wireless.iwd = {
     enable = true;
-    settings.General.EnableNetworkConfiguration = true;
   };
-
-  networking.resolvconf.enable = true;
 }

@@ -10,4 +10,6 @@
     enable = true;
     settings.General.EnableNetworkConfiguration = true;
   };
+
+  networking.resolvconf.enable = true;
 }

@@ -21,6 +21,7 @@
   boot.extraModulePackages = [ ];
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.efi.canTouchEfiVariables = false;
 
   boot.binfmt.emulatedSystems = [ "x86_64-linux" ];

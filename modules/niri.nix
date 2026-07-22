@@ -15,8 +15,6 @@
     gifsicle
     gnome-control-center
     xwayland-satellite-unstable
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
   ];
 
   services.libinput.enable = true;

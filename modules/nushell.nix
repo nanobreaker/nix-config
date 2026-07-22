@@ -12,6 +12,13 @@
     {
       programs.nushell = {
         enable = true;
+
+        environmentVariables = {
+          EDITOR = "hx";
+          VISUAL = "hx";
+          BROWSER = "zen";
+        };
+
         configFile.text = ''
           $env.config.show_banner = false
           $env.config.buffer_editor = 'hx'

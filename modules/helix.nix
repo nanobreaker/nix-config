@@ -9,6 +9,11 @@
     shellAliases.x = "hx";
   };
 
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
+
   environment.systemPackages = with pkgs; [
     vscode-langservers-extracted
     typescript-language-server

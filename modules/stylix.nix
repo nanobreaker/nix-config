@@ -36,6 +36,7 @@ in
         overlays.enable = false;
 
         polarity = "dark";
+
         base16Scheme = darkScheme;
 
         cursor = {
@@ -45,9 +46,14 @@ in
         };
 
         fonts = {
-          serif.name = "Berkeley Mono SemiBold";
-          sansSerif.name = "Berkeley Mono SemiBold";
-          monospace.name = "Berkeley Mono SemiBold";
+          serif.name = "Berkeley Mono";
+          sansSerif.name = "Berkeley Mono";
+          monospace.name = "Berkeley Mono";
+
+          sizes = {
+            terminal = 18;
+          };
+
           emoji = {
             name = "Symbols Nerd Font";
             package = pkgs.nerd-fonts.symbols-only;

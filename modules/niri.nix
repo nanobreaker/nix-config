@@ -15,6 +15,8 @@
     gifsicle
     gnome-control-center
     xwayland-satellite-unstable
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
   ];
 
   services.libinput.enable = true;
@@ -23,6 +25,7 @@
   home-manager.sharedModules = [
     {
       imports = [ inputs.niri.homeModules.niri ];
+
       programs.niri = {
         enable = true;
         package = pkgs.niri-unstable;

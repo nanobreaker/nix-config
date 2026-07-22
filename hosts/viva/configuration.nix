@@ -39,6 +39,7 @@
     ../../modules/xserver.nix
     ../../modules/yazi.nix
     ../../modules/zen.nix
+    ../../modules/zed.nix
   ];
 
   networking.hostName = "thatwhichisapple";

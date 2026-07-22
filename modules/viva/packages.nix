@@ -25,7 +25,6 @@
     usbutils
     uutils-coreutils-noprefix
     wl-color-picker
-    zed-editor
     legcord
     python3
     gnumake

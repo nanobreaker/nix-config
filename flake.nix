@@ -3,6 +3,7 @@
 
   nixConfig = {
     extra-substituters = [
+      "https://zed.cachix.org"
       "https://nixos-apple-silicon.cachix.org"
       "https://nix-community.cachix.org/"
       "https://noctalia.cachix.org"
@@ -10,6 +11,7 @@
     ];
 
     extra-trusted-public-keys = [
+      "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
       "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
@@ -69,6 +71,8 @@
     berkeley-mono.url = "git+ssh://git@github.com/nanobreaker/berkeley-mono.git";
 
     nix-assets.url = "git+ssh://git@github.com/nanobreaker/nix-assets.git";
+
+    zed.url = "github:zed-industries/zed/v1.12.0-pre";
   };
 
   outputs =

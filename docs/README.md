@@ -45,24 +45,25 @@ is possible to install nixos on apple silicon.
 
 Below lists of essential packages that give my system needed vibe.
 
-### Graphics
+### GUIs
 
-  | name           | description        |
-  | -------------- | ------------------ |
-  | niri           | wayland compositor |
-  | noctalia-shell | desktop shell      |
-  | awww           | wallpaper daemon   |
-  | nautilus       | file browser       |
-  | zen            | internet browser   |
+  | name     | description        |
+  | -------- | ------------------ |
+  | niri     | wayland compositor |
+  | noctalia | desktop shell      |
+  | nautilus | file browser       |
+  | zen      | internet browser   |
+  | ghostty  | terminal emulator  |
 
-### Terminal
+### TUIs
 
   | name     | description           |
   | -------- | --------------------- |
-  | tuigreet | boot greeter          |
-  | ghostty  | terminal emulator     |
+  | tuigreet | tui greeter           |
   | nushell  | terminal shell        |
   | starship | terminal shell prompt |
+  | yazi     | file browser          |
+  | gitui    | tui git               |
 
 ### IDEs
 
@@ -71,13 +72,14 @@ Below lists of essential packages that give my system needed vibe.
   | helix | modal text editor |
   | zed   | editor            |
 
-### Other
+### Theming
 
-  | name          | description |
-  | ------------- | ----------- |
-  | stylix        | theming     |
-  | berkeley-mono | font        |
-  | nerd-icons    | icons       |
+  | name          | description      |
+  | ------------- | ---------------- |
+  | stylix        | theming          |
+  | berkeley-mono | fonts            |
+  | nerd-icons    | icons            |
+  | awww          | wallpaper daemon |
 
 # Getting Started
 
@@ -129,17 +131,17 @@ nix fmt
 Build and switch to a host configuration with `nixos-rebuild`.
 
 ```shell
-sudo nixos-rebuild switch --flake .#host
+sudo nixos-rebuild switch --flake .#<host>
 ```
 
 Or using nix helper, which wraps common nixos rebuild flows and asks for
 elevated privileges when needed.
 
 ```shell
-nh os switch -H host
+nh os switch -H <host>
 ```
 
-Replace `host` with the host you want to build. In my case, this is either
+Replace `<host>` with the host you want to build. In my case, this is either
 `viva` either `nano`.
 
 ## Updating

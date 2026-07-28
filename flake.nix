@@ -36,6 +36,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     apple-silicon.url = "github:nix-community/nixos-apple-silicon";
 

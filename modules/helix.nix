@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   environment = {
     shellAliases.x = "hx";
@@ -14,20 +17,20 @@
     VISUAL = "hx";
   };
 
-  environment.systemPackages = with pkgs; [
-    vscode-langservers-extracted
-    typescript-language-server
-    panache
-    nixfmt
-    nixfmt-tree
-    nil
-    rust-analyzer-nightly
-    lldb
-    yaml-language-server
-    zls
-    taplo
-    clang
-    clang-tools
+  environment.systemPackages = [
+    pkgs.vscode-langservers-extracted
+    pkgs.typescript-language-server
+    pkgs.nixfmt
+    pkgs.nixfmt-tree
+    pkgs.nil
+    pkgs.rust-analyzer-nightly
+    pkgs.lldb
+    pkgs.yaml-language-server
+    pkgs.zls
+    pkgs.tombi
+    pkgs.clang
+    pkgs.clang-tools
+    unstable.panache
   ];
 
   home-manager.sharedModules = [

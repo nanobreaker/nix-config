@@ -32,5 +32,6 @@
     docker-compose
     libusb1
     ragenix
+    postman
   ];
 }

@@ -11,6 +11,7 @@ in
     pkgs.quarkus
     pkgs.jetbrains.idea
     pkgs.jetbrains.jdk
+    pkgs.jetbrains.datagrip
   ];
 
   environment.variables = {

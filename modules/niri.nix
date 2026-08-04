@@ -47,6 +47,11 @@
           input = {
             keyboard.xkb.layout = "us,ru";
             keyboard.xkb.options = "grp:alt_shift_toggle";
+
+            focus-follows-mouse.enable = true;
+            warp-mouse-to-focus.enable = true;
+            workspace-auto-back-and-forth = true;
+
             touchpad = {
               click-method = "button-areas";
               dwt = true;
@@ -58,9 +63,11 @@
               middle-emulation = true;
               accel-profile = "adaptive";
             };
-            focus-follows-mouse.enable = true;
-            warp-mouse-to-focus.enable = true;
-            workspace-auto-back-and-forth = true;
+
+            mouse = {
+              accel-profile = "flat";
+              accel-speed = 0.0;
+            };
           };
 
           outputs = {

@@ -34,6 +34,14 @@
             hide-when-typing = true;
           };
 
+          blur = {
+            enable = true;
+            passes = 3;
+            offset = 3.0;
+            noise = 0.02;
+            saturation = 1.5;
+          };
+
           prefer-no-csd = true;
 
           spawn-at-startup = [
@@ -168,6 +176,19 @@
                 bottom-right = 4.0;
               };
               clip-to-geometry = true;
+            }
+
+            {
+              matches = [
+                {
+                  app-id = "^com\\.mitchellh\\.ghostty$";
+                }
+              ];
+
+              background-effect = {
+                blur = true;
+                xray = true;
+              };
             }
           ];
 

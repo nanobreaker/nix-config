@@ -17,6 +17,8 @@ _: {
           mouse-hide-while-typing = true;
 
           gtk-titlebar = false;
+
+          background-opacity = 0.70;
         };
       };
     }

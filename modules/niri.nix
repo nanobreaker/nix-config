@@ -125,7 +125,7 @@
 
             border = {
               enable = true;
-              width = 2;
+              width = 1;
               active.color = "#d8dadd";
               inactive.color = "#0a0c10";
             };

@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   environment = {
     shellAliases.x = "hx";
@@ -30,7 +27,7 @@ in
     pkgs.tombi
     pkgs.clang
     pkgs.clang-tools
-    unstable.panache
+    pkgs.panache
   ];
 
   home-manager.sharedModules = [

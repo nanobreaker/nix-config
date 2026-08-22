@@ -11,4 +11,11 @@ _: {
       }
     ];
   };
+
+  security.pam.services.ghost-shell = {
+    unixAuth = true;
+
+    fprintAuth = false;
+    u2f.enable = false;
+  };
 }

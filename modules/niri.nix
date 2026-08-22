@@ -177,11 +177,45 @@
               };
               clip-to-geometry = true;
             }
-
             {
               matches = [
                 {
                   app-id = "^com\\.mitchellh\\.ghostty$";
+                }
+              ];
+
+              background-effect = {
+                blur = true;
+                xray = true;
+              };
+            }
+            {
+              matches = [
+                {
+                  app-id = "^ghost-shell-finder$";
+                }
+                {
+                  app-id = "^ghost-shell-launcher$";
+                }
+                {
+                  app-id = "^ghost-shell-lockscreen$";
+                }
+              ];
+
+              open-floating = true;
+
+              background-effect = {
+                blur = true;
+                xray = false;
+              };
+            }
+          ];
+
+          layer-rules = [
+            {
+              matches = [
+                {
+                  namespace = "^ghost-shell-bar$";
                 }
               ];
 

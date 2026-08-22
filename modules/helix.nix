@@ -14,20 +14,21 @@
     VISUAL = "hx";
   };
 
-  environment.systemPackages = [
-    pkgs.vscode-langservers-extracted
-    pkgs.typescript-language-server
-    pkgs.nixfmt
-    pkgs.nixfmt-tree
-    pkgs.nil
-    pkgs.rust-analyzer-nightly
-    pkgs.lldb
-    pkgs.yaml-language-server
-    pkgs.zls
-    pkgs.tombi
-    pkgs.clang
-    pkgs.clang-tools
-    pkgs.panache
+  environment.systemPackages = with pkgs; [
+    vscode-langservers-extracted
+    typescript-language-server
+    nixfmt
+    nixfmt-tree
+    nil
+    rust-analyzer-nightly
+    lldb
+    yaml-language-server
+    zls
+    tombi
+    clang
+    clang-tools
+    panache
+    harper
   ];
 
   home-manager.sharedModules = [
@@ -374,6 +375,10 @@
               command = "panache";
               args = [ "lsp" ];
             };
+            harper-ls = {
+              command = "harper-ls";
+              args = [ "--stdio" ];
+            };
           };
 
           language = [
@@ -438,6 +443,7 @@
               auto-format = true;
               language-servers = [
                 "panache-ls"
+                "harper-ls"
               ];
             }
             {

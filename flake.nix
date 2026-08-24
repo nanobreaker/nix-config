@@ -73,7 +73,7 @@
 
     nix-assets.url = "git+ssh://git@github.com/nanobreaker/nix-assets.git";
 
-    zed.url = "github:zed-industries/zed/v1.12.0-pre";
+    zed.url = "github:zed-industries/zed/v1.16.2";
   };
 
   outputs =

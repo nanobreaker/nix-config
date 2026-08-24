@@ -197,15 +197,19 @@
                 {
                   app-id = "^ghost-shell-launcher$";
                 }
-                {
-                  app-id = "^ghost-shell-lockscreen$";
-                }
               ];
+
+              geometry-corner-radius = {
+                top-left = 4.0;
+                top-right = 4.0;
+                bottom-left = 4.0;
+                bottom-right = 4.0;
+              };
 
               open-floating = true;
 
               background-effect = {
-                blur = true;
+                blur = false;
                 xray = false;
               };
             }

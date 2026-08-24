@@ -20,6 +20,7 @@ in
         package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
         mutableUserSettings = true;
+        mutableUserKeymaps = true;
 
         extraPackages = [
           jdk
@@ -33,6 +34,25 @@ in
 
         extensions = [
           "github-theme"
+        ];
+
+        userKeymaps = [
+          {
+            context = "(vim_mode == helix_normal || vim_mode == helix_select) && !menu";
+
+            bindings = {
+              "alt-up" = "editor::SelectLargerSyntaxNode";
+              "alt-down" = "editor::SelectSmallerSyntaxNode";
+              "shift-x" = [
+                "action::Sequence"
+                [
+                  "editor::SelectLine"
+                  "editor::SelectUp"
+                  "editor::SelectLine"
+                ]
+              ];
+            };
+          }
         ];
 
         userSettings = {

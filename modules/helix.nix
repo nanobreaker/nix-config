@@ -321,9 +321,7 @@
           };
 
           keys.normal = {
-            C-c = ":clipboard-yank";
-            C-v = ":clipboard-paste-after";
-            "C-/" = "toggle_comments";
+            X = "extend_line_above";
           };
         };
 

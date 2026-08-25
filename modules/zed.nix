@@ -30,10 +30,13 @@ in
           vscodels
           vtsls
           packageVersionServer
+          pkgs.tombi
         ];
 
         extensions = [
           "github-theme"
+          "toml"
+          "tombi"
         ];
 
         userKeymaps = [
@@ -43,6 +46,7 @@ in
             bindings = {
               "alt-up" = "editor::SelectLargerSyntaxNode";
               "alt-down" = "editor::SelectSmallerSyntaxNode";
+              "space d" = "diagnostics::Deploy";
               "shift-x" = [
                 "action::Sequence"
                 [
@@ -168,6 +172,14 @@ in
           };
 
           lsp = {
+            tombi = {
+              binary = {
+                path = "${pkgs.tombi}/bin/tombi";
+                arguments = [ "lsp" ];
+                ignore_system_version = false;
+              };
+            };
+
             "package-version-server" = {
               binary = {
                 path = "${packageVersionServer}/bin/package-version-server";
@@ -403,6 +415,25 @@ in
           };
 
           languages = {
+            Rust = {
+              formatter = "language_server";
+              format_on_save = "on";
+            };
+
+            TOML = {
+              language_servers = [
+                "tombi"
+              ];
+
+              formatter = {
+                language_server = {
+                  name = "tombi";
+                };
+              };
+
+              format_on_save = "on";
+            };
+
             JSON = {
               language_servers = [
                 "json-language-server"

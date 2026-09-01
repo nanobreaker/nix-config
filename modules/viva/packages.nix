@@ -1,4 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
+let
+  fastpotify =
+    inputs.fastpotify.packages.${pkgs.stdenv.hostPlatform.system}.fastpotify.overrideAttrs
+      (old: {
+        cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+          inherit (old) pname version src;
+          hash = "sha256-M5ZkHAI2Lp5BDdxR5R2w2Qkj5bOzOVbL2h3lx+qN9ao=";
+        };
+      });
+in
 {
   environment.systemPackages = with pkgs; [
     ffmpeg
@@ -7,7 +17,6 @@
     impala
     mpv
     nautilus
-    ncspot
     nixd
     nodejs
     deno
@@ -33,5 +42,6 @@
     libusb1
     ragenix
     postman
+    fastpotify
   ];
 }

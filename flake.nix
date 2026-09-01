@@ -63,6 +63,8 @@
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
+    fastpotify.url = "github:mixedCase/fastpotify?ref=fix/nix-package-build";
+
     tuigreet.url = "github:NotAShelf/tuigreet";
     tuigreet.inputs.nixpkgs.follows = "nixpkgs";
 

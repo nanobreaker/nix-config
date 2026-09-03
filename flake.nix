@@ -57,6 +57,9 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
+    ghost-shell.url = "github:thatwhichisdev/ghost-shell";
+    ghost-shell.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:nix-community/stylix/release-26.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 

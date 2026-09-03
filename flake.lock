@@ -199,11 +199,33 @@
     "fenix_2": {
       "inputs": {
         "nixpkgs": [
+          "ghost-shell",
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src_2"
+      },
+      "locked": {
+        "lastModified": 1784709340,
+        "narHash": "sha256-qsmQMPL+qInjXfdjX0RquObSKcs5h/4D63IWH9j4+Ro=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "fa09e6473a0dfd673e6cb9a37741aec513b4bb2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "fenix_3": {
+      "inputs": {
+        "nixpkgs": [
           "globalprotect-openconnect",
           "naersk",
           "nixpkgs"
         ],
-        "rust-analyzer-src": "rust-analyzer-src_2"
+        "rust-analyzer-src": "rust-analyzer-src_3"
       },
       "locked": {
         "lastModified": 1752475459,
@@ -339,6 +361,27 @@
         "type": "github"
       }
     },
+    "ghost-shell": {
+      "inputs": {
+        "fenix": "fenix_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788441008,
+        "narHash": "sha256-HXosrwmYwXrfz7hCaZR0aX2K6sGeRFme6OxVb92NhYI=",
+        "owner": "thatwhichisdev",
+        "repo": "ghost-shell",
+        "rev": "7a65e7bd8c7d8363e73187855e2234061f186944",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thatwhichisdev",
+        "repo": "ghost-shell",
+        "type": "github"
+      }
+    },
     "globalprotect-openconnect": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -419,7 +462,7 @@
     },
     "naersk": {
       "inputs": {
-        "fenix": "fenix_2",
+        "fenix": "fenix_3",
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
@@ -801,6 +844,7 @@
         "berkeley-mono": "berkeley-mono",
         "fastpotify": "fastpotify",
         "fenix": "fenix",
+        "ghost-shell": "ghost-shell",
         "globalprotect-openconnect": "globalprotect-openconnect",
         "helix": "helix",
         "home-manager": "home-manager",
@@ -834,6 +878,23 @@
       }
     },
     "rust-analyzer-src_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784667699,
+        "narHash": "sha256-853teJQOgTTKRfNxcIJ53ziJOGNeg3c74PvQl5l61Jc=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "1174734d9c6453d13d2b5e3d578512c579ca37f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "rust-analyzer-src_3": {
       "flake": false,
       "locked": {
         "lastModified": 1752428706,

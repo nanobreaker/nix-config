@@ -5,7 +5,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/awww.nix
+    ../../modules/ghost-shell.nix
     ../../modules/btop.nix
     ../../modules/docker.nix
     ../../modules/fastfetch.nix
@@ -21,7 +21,6 @@
     ../../modules/niri.nix
     ../../modules/nix.nix
     ../../modules/nixpkgs.nix
-    ../../modules/noctalia.nix
     ../../modules/nushell.nix
     ../../modules/pipewire.nix
     ../../modules/probe-rs-tools.nix
